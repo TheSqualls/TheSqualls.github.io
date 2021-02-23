@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://thesqualls.github.io/2021/02/01/[%E9%9B%86%E5%90%88]%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/">
+<link rel="canonical" href="https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_%20internal%20error%20code,%20arguments_%20[qcsfbdnp_1],%20[],%20[],%20[],%20[],%20[],%20[],%20[]/">
 
 
 
   <title>
-[集合]引用泛型结果集复制 |
+[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], [] |
 TheSqualls = </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ TheSqualls = </title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">[集合]引用泛型结果集复制
+  <h1 itemprop="name headline">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2021-02-01 16:11:08">
+  <span class="item" title="创建时间：2021-02-23 15:44:57">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2021-02-01T16:11:08+08:00">2021-02-01</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-02-23T15:44:57+08:00">2021-02-23</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ TheSqualls = </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ TheSqualls = </title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/02/01/[%E9%9B%86%E5%90%88]%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_%20internal%20error%20code,%20arguments_%20[qcsfbdnp_1],%20[],%20[],%20[],%20[],%20[],%20[],%20[]/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -150,15 +150,44 @@ TheSqualls = </title>
     
 
     <blockquote>
-<p>由于现在在做的项目数据量太大，导致查询太慢，所以对查询出来的 List&lt;HashMap&lt;String, Object&gt;&gt; 类型的结果集进行了 ehcache 缓存处理，本来这样做是没什么问题的，但是当我们对缓存后的结果集进行相应的处理时，问题就发生了。</p>
+<p>此贴讲该错误和网上的大部分不同，此错误是在特定的技术栈框架下触发的。这里的 SQL 通过 ibatis 编写时并不会报错，而仅仅是在 mybatis 框架下编写才会产生报错。</p>
 </blockquote>
-<p>未加缓存处理前的代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;HashMap&lt;String, Object&gt;&gt; newWealths = indexService.newWealth(param);  <span class="comment">//查询结果集</span></span><br><span class="line"><span class="keyword">for</span> (HashMap&lt;String, Object&gt; newWealth: newWealths) &#123;</span><br><span class="line">	String recommendStock = (String) newWealths.get(<span class="string">"recommendStock"</span>);</span><br><span class="line">	recommendStock=stockCache.insertStockInfo(recommendStock,<span class="keyword">null</span>);  <span class="comment">//对结果集的字段进行高亮处理(&lt;a href="javascript:void(0);" style="color:red"&gt;recommendStock&lt;/a&gt;)</span></span><br><span class="line">	newWealths.put(<span class="string">"recommendStock"</span>, recommendStock);</span><br><span class="line">&#125;</span><br><span class="line">model.put(<span class="string">"list"</span>, newWealths);  <span class="comment">//添加到ModelMap对象中去</span></span><br><span class="line"><span class="keyword">return</span> <span class="string">"newwealth/newwealth"</span>;  <span class="comment">//返回相应的jsp页面</span></span><br></pre></td></tr></table></figure>
-<p>很显然，当我们进行相应的处理后，结果集 newWealths 已经和从数据库里面读取出来的结果相较而言发生了改变，但引用地址仍然是相同的，在对 recommendStock 字段进行高亮处理后，newWealths 对象的引用仍然是原来的 newWealths 对象引用，而当我们植入了缓存后，发起第二次发生请求时，缓存会拿到第一次运行的结果集的引用地址 (即进行了高亮处理的 newWealths 对象)，再次对该结果集进行高亮处理，从而导致仅有第一次访问的时候，结果集才是正确的。<br>
-解决：考虑到是由于高亮处理时在原来的结果集上进行处理而导致后续的问题，从而我们可以创建一个新的 List&lt;HashMap&lt;String, Object&gt;&gt; 集合来存储原来的 newWealths 对象，在新对象上进行高亮处理，这样就可以避免拿到缓存对象发生了变化 (高亮处理)。<br>
-但是这里就有一个问题：由于 list 集合是引用传递，HashMap 集合也是引用传递，当我们重新定义一个 List&lt;HashMap&lt;String, Object&gt;&gt; 类型的集合使用 = 或者 addAll () 来进行值的复制时，还是会修改原来的对象 (因为 = 传递的是同一个引用地址，而使用 addAll () 拿到的 list 集合虽然是新的集合，但是集合内的引用对象 HashMap 还是原来的 HashMap 的引用地址，所以这二者导致的结果要么就是对原对象的引用处理，要么就是对原对象的引用元素的引用处理，至于采用 clone () 方法和 new ArrayList&lt;&gt; (原对象) 方法实际上实现的还是和 addAll 一样的，就不再解释)。<br>
-那么，讲讲我们该如何去解决这种问题，由于采用 clone ()，addAll ()，new ArrayList&lt;&gt; (原对象) 这三种方法都是会产生新对象，不会产生对同一个地址的引用，这个时候我们就可以通过 for 循环来将创建一个新的 HashMap&lt;String, Object &gt; 对象来获取原 HashMap&lt;String, Object &gt; 的值，将其存入我们新定义的 List&lt;HashMap&lt;String, Object&gt;&gt; 集合，这样就可以避免我们处理新的 List&lt;HashMap&lt;String, Object&gt;&gt; 集合对象时同时会对原对象产生更改。代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;HashMap&lt;String, Object&gt;&gt; newWealths = indexService.newWealth(param);</span><br><span class="line">List&lt;HashMap&lt;String, Object&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;HashMap&lt;String, Object&gt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (HashMap&lt;String, Object&gt; hashMap : newWealths) &#123;</span><br><span class="line">	HashMap&lt;String, Object&gt; newMap = (HashMap&lt;String, Object&gt;) hashMap.clone();</span><br><span class="line">	list.add(newMap);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (HashMap&lt;String, Object&gt; l : list)&#123;</span><br><span class="line">	String recommendStock = (String) l.get(<span class="string">"recommendStock"</span>);</span><br><span class="line">	recommendStock=stockCache.insertStockInfo(recommendStock,<span class="keyword">null</span>);</span><br><span class="line">	l.put(<span class="string">"recommendStock"</span>, recommendStock);</span><br><span class="line">&#125;</span><br><span class="line">model.put(<span class="string">"list"</span>, list);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="string">"newwealth/newwealth"</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="背景"><a class="markdownIt-Anchor" href="#背景">#</a> 背景</h4>
+<ul>
+<li>1、mybatis 采用注解使用 merge into 对多条数据进行操作：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223150131772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>2、由于需要过滤一下 U 表，增加过滤条件：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223150241278.png" alt="在这里插入图片描述"></li>
+<li>3、这个时候就报错了：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223150422653.png" alt="在这里插入图片描述"></li>
+<li>4、此刻很明显的可以定位产生此错误的原因，就是传入参数对 U 表进行过滤的语句；</li>
+<li>5、使用自定义的 provider 类构造 SQL 语句返回执行：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223151220383.png" alt="在这里插入图片描述"><br>
+<img data-src="https://img-blog.csdnimg.cn/20210223151249173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+并不会报错，接着手动将数据编入 SQL 通过 oracle 客户端执行，执行成功，由此可以判断想要执行的 SQL 语法上是没有问题的。</li>
+</ul>
+<h4 id="解决"><a class="markdownIt-Anchor" href="#解决">#</a> 解决</h4>
+<ul>
+<li>1、判断是不是此处不可以使用子查询，修改 SQL，不传入参数：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223150721128.png" alt="在这里插入图片描述"><br>
+执行该查询，发现并不会报错，由此可以推断，此处并不是子查询的问题，而是通过 mybatis 框架传参导致的问题；</li>
+<li>2、判断是不是由于预编译的原因而导致的问题，使用 $ 符合拼接的方式来创建 SQL：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223152248294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+执行报错：<img data-src="https://img-blog.csdnimg.cn/20210223152311611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+很明显，缺少引号所致，修改 SQL，添加引号：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223152404217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+执行成功：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223152619306.png" alt="在这里插入图片描述"><br>
+由此可以发现拼接时需要拼上引号才能实现，推断预编译时是否也缺少引号；</li>
+<li>3、使用 #传参时也加上引号：<br>
+<img data-src="https://img-blog.csdnimg.cn/20210223152929919.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<p>报错，由此可以发现参数列与实际接收的参数都不一样了，所以不能通过加引号的方式去解决，查找资料，有人说是 oracle 的 bug，有人说将数据库表的 CURSOR_SHARING = force 注释掉就行了，还有人说与绑定变量有关等等一系列的说法，但通过上述的分析与测验，只能归结于 mybatis 在预编译的时候产生的问题，毕竟在我用 mybatis 的前身 ibatis 时并不会产生此问题，一时半会也无新的解决思路，上述也提到了两种解决方案：</p>
+<ul>
+<li>采用自定义 provider 类构造 SQL 语句返回执行；</li>
+<li>采用引号 +$ 符号拼接的方式将数据传入 SQL 执行；</li>
+</ul>
+<p>这两种方案都是可行的，至于使用预编译为何无法执行的问题只能待以后有新的思路再来解决了。</p>
 
   </div>
 
@@ -170,7 +199,7 @@ TheSqualls = </title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2021-02-02 15:25:15" itemprop="dateModified" datetime="2021-02-02T15:25:15+08:00">2021-02-02</time>
+    <time title="修改时间：2021-02-23 15:44:37" itemprop="dateModified" datetime="2021-02-23T15:44:37+08:00">2021-02-23</time>
   </span>
 </div>
 
@@ -206,7 +235,7 @@ TheSqualls = </title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://thesqualls.github.io/2021/02/01/[%E9%9B%86%E5%90%88]%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">https://thesqualls.github.io/2021/02/01/[集合]引用泛型结果集复制/</a>
+    <a href="https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_%20internal%20error%20code,%20arguments_%20[qcsfbdnp_1],%20[],%20[],%20[],%20[],%20[],%20[],%20[]/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -225,22 +254,14 @@ TheSqualls = </title>
     <div class="item left">
       
 
-  <a href="/2021/02/01/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfb3vzhj20zk0m8wny.jpg" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">
+  <a href="/2021/02/22/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewr8iypj20zk0m8b29.jpg" title="笔记">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>[过滤器Filter]在过滤器Filter的初始化方法中获取bean</h3>
+  <h3>笔记</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclgrvbd6j20zk0m8qv5.jpg" title="[Spring预加载]InitializingBean接口">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>[Spring预加载]InitializingBean接口</h3>
-  </a>
-
     </div>
 </div>
 
@@ -257,6 +278,7 @@ TheSqualls = </title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text"> 解决</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -300,12 +322,10 @@ TheSqualls = </title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/02/01/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -323,6 +343,60 @@ TheSqualls = </title>
 <div class="rpost pjax">
   <h2>随机文章</h2>
   <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/%5Bredis%5Dspring%E6%95%B4%E5%90%88redis/" title="[redis]spring整合redis">[redis]spring整合redis</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" title="[Spring预加载]InitializingBean接口">[Spring预加载]InitializingBean接口</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" title="NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute &#39;observe&#39; on &#39;MutationObserver&#39;_ parameter 1 is no">NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute 'observe' on 'MutationObserver'_ parameter 1 is no</a></span>
+  </li>
+
       
   <li class="item">
     
@@ -347,60 +421,6 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" title="NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute &#39;observe&#39; on &#39;MutationObserver&#39;_ parameter 1 is no">NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute 'observe' on 'MutationObserver'_ parameter 1 is no</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5Boracle%5Doracle%E6%89%B9%E9%87%8F%E5%88%A4%E6%96%AD%E6%8F%92%E5%85%A5%E8%BF%98%E6%98%AF%E6%9B%B4%E6%96%B0/" title="[oracle]oracle批量判断插入还是更新">[oracle]oracle批量判断插入还是更新</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2021/02/01/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5D%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="[企业微信二次开发]不同环境部署">[企业微信二次开发]不同环境部署</a></span>
   </li>
 
@@ -410,7 +430,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/22/%E7%AC%94%E8%AE%B0/" title="笔记">笔记</a></span>
+    <span><a href="/2021/02/01/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
   </li>
 
   </ul>
@@ -441,7 +461,7 @@ TheSqualls = </title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2021/02/01/[集合]引用泛型结果集复制/',
+    path: '2021/02/23/[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
