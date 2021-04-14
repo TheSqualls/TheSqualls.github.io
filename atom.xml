@@ -3,7 +3,70 @@
     <id>https://TheSqualls.github.io</id>
     <title></title>
     <link href="https://TheSqualls.github.io" />
-    <updated>2021-03-22T06:45:31.084Z</updated>
+    <updated>2021-04-13T03:19:28.166Z</updated>
+    <entry>
+        <id>https://thesqualls.github.io/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/</id>
+        <title>springboot的好处？用过哪些加载器</title>
+        <link rel="alternate" href="https://thesqualls.github.io/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
+        <content type="html">&lt;p&gt;&lt;strong&gt;springboot 的好处？用过哪些加载器&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基于 spring：springboot 基于 spring，所以 spring 有的优点 springboot 也有，不需要开发人员学习一个全新的框架，学习门槛相对较低；&lt;/li&gt;
+&lt;li&gt;快速编码：springboot 的依赖包都是基于 maven 的 pom 文件提供的，而 springboot 本身就集成了特别多的第三方框架。以前开发 spring 应用时，需要用到的第三方框架的库都需要开发人员一个一个去寻找；现在不需要了，有些可能只需引入一个 pom.xml，就能把大量需要用到的第三方库自动引入到项目中。所以减少了开发工作量，实现快速编码；&lt;/li&gt;
+&lt;li&gt;模块化：基于 springboot 开发的项目可以非常简单的实现模块化编程，这样的话可以非常有效的实现项目的分工合作，减少开发过程中的代码冲突。模块化编程还可以非常高效的实现减少代码的改动量，按需修改模块，降低产生发生事故概率；&lt;/li&gt;
+&lt;li&gt;配置简单：springboot 摒弃了繁琐的 xml 配置文件，大量的配置文件经常是导致生产事故的原因。springboot 大量采用 yml 形式的配置文件再加上相应的 Annotation，从而大大减少了配置文件的个数，因为以前的 spring 应用引入一个第三方框架说不定就要添加一个配置文件。举个例子，比如项目中要引入数据库连接池 HikariCP，就需要添加一个关于 HikariCP 数据库连接池的配置文件，但是使用了 springboot 采用 HikariCP 可能就只需要那么几行配置就可以了，因为 Springboot 默认集成 HikariCP 数据库连接池，提供了很多默认的配置；&lt;/li&gt;
+&lt;li&gt;便捷部署：springboot 天生就是为了简单、快捷部署而生。springboot 内嵌了 tomcat，不需要额外部署应用服务器 tomcat，只需简单一个 java 运行环境即可，而且启动的命令也非常简单：java -jar xxx-release.jar。同时 springboot 结合现在非常火的技术 Docker、Kubernetes 可以快速实现集群部署；&lt;/li&gt;
+&lt;li&gt;有效监控：springboot 集成了非常高效的监控框架，只要引入对 spring-boot-statr-actuator 的依赖，就可以实现对服务性能的监控。结合 springcloud 就可以实现对整个微服务链路的全天候监控。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Java 类加载器：&lt;br&gt;
+java 类加载器常用的大致有三种：启动 (Bootstrap) 类加载器，扩展 (EXtension) 类加载器，系统 (System) 类加载器；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;启动 (Bootstrap) 类加载器：&lt;br&gt;
+启动类加载器又称为引导类加载器，主要加载的是 JVM 自身需要的类，这个类加载使用 C&lt;ins&gt; 语言实现，是虚拟机自身的一部分，负责将 &amp;lt;java_home&amp;gt;/lib 路径下的核心类库或 - xbootclasspath 参数指定的路径下的 jar 包加载到内存中，注意：由于虚拟机是按文件名识别加载 jar 包的，如 rt.jar，如果文件名不被虚拟机识别，即使把 jar 包丢到 lib 目录下也是没有作用的 (出于安全考虑，Bootstrap 启动类加载器只加载包名为 java、javax、sun 等开头的类)；由于是 C&lt;/ins&gt; 实现，没有父类。&lt;/li&gt;
+&lt;li&gt;扩展 (EXtension) 类加载器：&lt;br&gt;
+扩展类加载器是指 Sun 公司 (已被 Oracle 收购) 实现的 sun.misc.Launcher$ExtClassLoader 类，由 Java 语言实现的，是 Launcher 的静态内部类，它负责加载 &amp;lt; JAVA_HOME&amp;gt;/lib/ext 目录下或者由系统变量 - Djava.ext.dir 指定位路径中的类库，开发者可以直接使用标准扩展类加载器；由 Java 语言实现，父类加载器为启动类加载器。&lt;/li&gt;
+&lt;li&gt;系统 (System) 类加载器：&lt;br&gt;
+也称应用程序加载器是指 Sun 公司实现的 sun.misc.Launcher$AppClassLoader。它负责加载系统类路径 java -classpath 或 - D java.class.path 指定路径下的类库，也就是我们经常用到的 classpath 路径，开发者可以直接使用系统类加载器，一般情况下该类加载是程序中默认的类加载器，通过 ClassLoader#getSystemClassLoader () 方法可以获取到该类加载器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;java 虚拟机对 class 文件采用的是按需加载的方式，也就是说当需要使用该类时才会将它的 class 文件加载到内存生成 class 对象，而且加载某个类的 class 文件时，java 虚拟机采用的是双亲委派机制。&lt;/p&gt;
+&lt;p&gt;装载验证流程：&lt;br&gt;
+每个编写的 “.java” 扩展名文件都存储着需要执行的程序逻辑，这些 “.java” 文件经过 java 编译器编译成拓展名为 “.class” 的文件，“.class” 文件中保存这 java 代码经转换后的虚拟机指令，当需要使用某个类时，虚拟机将会加载它的 “.class” 文件，并创建对应的 class 对象，将 class 文件加载到虚拟机的内存中，这个过程称为类加载，类加载的过程：&lt;br/&gt;&lt;br&gt;
+加载–》(验证–》准备–》解析)(链接)–》初始化&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;加载：类加载过程的一个阶段：通过一个类的完全限定查找此类字节码文件，并利用字节码文件创建一个 class 对象；&lt;br/&gt;&lt;br&gt;
+链接：&lt;/li&gt;
+&lt;li&gt;验证：目的在于确保 class 文件的字节流中包含信息符合当前虚拟机要求，不会危害虚拟机安全。主要包括四种验证，文件格式验证，元数据验证，字节码验证，符号引用验证。&lt;br/&gt;&lt;br&gt;
+文件格式验证：是否以 0xCAFEBABE 开头，版本号是否合理；&lt;br/&gt;&lt;br&gt;
+元数据验证：是否有父亲，继承了 final 类？非抽象类实现了所有的抽象方法；&lt;br/&gt;&lt;br&gt;
+字节码验证：运行检查，栈数据类型和操作码数据参数吻合，跳转指令指定到合理的位置；&lt;br/&gt;&lt;br&gt;
+符号引用验证：常量池中描述类是否存在，访问的方法或字段是否存在且有足够的权限。&lt;/li&gt;
+&lt;li&gt;准备：为类变量 (即 static 修饰的字段变量) 分配内存并设置改类变量的初始值即 0 (如 static int i=5; 这里只将 i 初始化为 0，至于 5 的值将在初始化是赋值)，这里不包含用 final 修饰的 static，因为 final 在编译的时候就分配了，注意这里包含为实例化变量初始化，类变量会分配在方法区中，而实例变量是会随着对象一起分配到 java 堆中。&lt;br&gt;
+分配内存，并为类设置初始值 (方法区中)：
+&lt;ul&gt;
+&lt;li&gt;public static int v=1;&lt;/li&gt;
+&lt;li&gt;在准备阶段中，v 会被设置为 0&lt;/li&gt;
+&lt;li&gt;在初始化的中才会被设置为 1&lt;/li&gt;
+&lt;li&gt;对于 static final 类型，在准备阶段就会被赋上正确的值&lt;/li&gt;
+&lt;li&gt;public static final int v=1;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;解析：主要将常量池中的符号引用替换为直接引用的过程。符号引用就是一组符号来描述目标，可以是任何字面量，而直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄。有类或接口的解析，字段解析，类方法解析，接口方法解析&lt;/li&gt;
+&lt;li&gt;初始化：类加载最后阶段，若该类有超类，则对其进行初始化，执行静态初始化器和静态初始化成员变量 (如前面只初始化了默认值的 static 变量将会在这个阶段赋值，成员变量也将被初始化)。
+&lt;ul&gt;
+&lt;li&gt;执行类构造器
+&lt;ul&gt;
+&lt;li&gt;static 变量赋值语句&lt;/li&gt;
+&lt;li&gt;static {} 代码块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;之类的调用前保证父类的被调用&lt;/li&gt;
+&lt;li&gt;是线程安全的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;类加载器的任务是根据一个类的全限定名来读取此类的二进制字节流到 JVM 中，然后转换为一个与目标类对应的 java.lang.class 对象实例&lt;/p&gt;
+</content>
+        <updated>2021-04-13T03:19:28.166Z</updated>
+    </entry>
     <entry>
         <id>https://thesqualls.github.io/2021/03/22/[vue]%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/</id>
         <title>[vue]常见概念</title>
