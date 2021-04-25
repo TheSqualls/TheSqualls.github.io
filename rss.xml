@@ -5,8 +5,22 @@
         <link>https://TheSqualls.github.io</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Sun, 25 Apr 2021 11:17:57 +0800</pubDate>
-        <lastBuildDate>Sun, 25 Apr 2021 11:17:57 +0800</lastBuildDate>
+        <pubDate>Sun, 25 Apr 2021 17:05:45 +0800</pubDate>
+        <lastBuildDate>Sun, 25 Apr 2021 17:05:45 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://thesqualls.github.io/2021/04/25/hashMap%E5%92%8ChashTable%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+            <title>hashMap和hashTable的区别</title>
+            <link>https://thesqualls.github.io/2021/04/25/hashMap%E5%92%8ChashTable%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+            <pubDate>Sun, 25 Apr 2021 17:05:45 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;1、继承的父类不同：Hashtable 继承自 Dictionary 类，而 HashMap 继承自 AbstractMap 类。但二者都实现了 Map 接口。&lt;br&gt;
+2、线程安全性不同：Hashtable 中的方法是 Synchronize 的，而 HashMap 中的方法在缺省情况下是非 Synchronize 的。在多线程并发的环境下，可以直接使用 Hashtable，不需要自己为它的方法实现同步，但使用 HashMap 时就必须要自己增加同步处理。&lt;br&gt;
+3、是否提供 contains 方法： HashMap 把 Hashtable 的 contains 方法去掉了，改成 containsValue 和 containsKey，因为 contains 方法容易让人引起误解。Hashtable 则保留了 contains，containsValue 和 containsKey 三个方法，其中 contains 和 containsValue 功能相同。&lt;br&gt;
+4、key 和 value 是否允许 null 值：Hashtable 中，key 和 value 都不允许出现 null 值。但是如果在 Hashtable 中有类似 put (null,null) 的操作，编译同样可以通过，因为 key 和 value 都是 Object 类型，但运行时会抛出 NullPointerException 异常。&lt;br&gt;
+5、两个遍历方式的内部实现上不同：Hashtable、HashMap 都使用了 Iterator。而由于历史原因，Hashtable 还使用了 Enumeration 的方式 。&lt;br&gt;
+6、hash 值不同：哈希值的使用不同，HashTable 直接使用对象的 hashCode。而 HashMap 重新计算 hash 值。&lt;br&gt;
+7、内部实现使用的数组初始化和扩容方式不同：HashTable 在不指定容量的情况下的默认容量为 11，而 HashMap 为 16，Hashtable 不要求底层数组的容量一定要为 2 的整数次幂，而 HashMap 则要求一定为 2 的整数次幂。Hashtable 扩容时，将容量变为原来的 2 倍加 1，而 HashMap 扩容时，将容量变为原来的 2 倍。Hashtable 和 HashMap 它们两个内部实现方式的数组的初始大小和扩容的方式。HashTable 中 hash 数组默认大小是 11，增加的方式是 old*2+1。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://thesqualls.github.io/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</guid>
             <title>hashMap的实现原理</title>
