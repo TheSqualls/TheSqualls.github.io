@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://thesqualls.github.io/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/">
+<link rel="canonical" href="https://thesqualls.github.io/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/">
 
 
 
   <title>
-Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present |
+springboot和spring常用的注解 |
 TheSqualls = </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ TheSqualls = </title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present
+  <h1 itemprop="name headline">springboot和spring常用的注解
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2021-02-01 16:13:00">
+  <span class="item" title="创建时间：2021-04-25 10:45:54">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2021-02-01T16:13:00+08:00">2021-02-01</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-04-25T10:45:54+08:00">2021-04-25</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ TheSqualls = </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicivghyooj20zk0m8dir.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ TheSqualls = </title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -149,23 +149,59 @@ TheSqualls = </title>
   <div class="body md" itemprop="articleBody">
     
 
-    <blockquote>
-<p>通过实体类来生成数据库表，从而减少报错和实体类与数据库中字段不符而产生的一系列问题</p>
-</blockquote>
-<p>搭好了一切环境后，项目运行：<strong>java.lang.IllegalArgumentException: At least one JPA metamodel must be present!</strong><br>
- 报错截图：<br>
-<img data-src="https://img-blog.csdnimg.cn/20191230160432160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-在网上找了很多方式，大多都是修改启动类，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">@EnableAutoConfiguration(exclude&#x3D;&#123;</span><br><span class="line">        JpaRepositoriesAutoConfiguration.class&#x2F;&#x2F;禁止springboot自动加载持久化bean</span><br><span class="line">&#125;)</span><br><span class="line">public class OrmtestApplication &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(OrmtestApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里项目的确不会报错，但是我们的配置文件的数据源 datasource 也不会被加载，就是说你的数据库用户名密码是否正确都无法进行判断。当然也无法实现我所需要的通过使用实体类生成数据库表功能。</p>
-<p>网上的第二种方式：<br>
-去掉 spring-boot-starter-data-jpa 包的依赖版本，如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>但是不管有没有依赖版本我都试过了，然并卵。<br>
-所幸放弃了网上的解决方式，怀疑是依赖的冲突问题，更换 2.0.0 的 springboot 版本，报的错误发生了改变：<br>
-<img data-src="https://img-blog.csdnimg.cn/20191230161911246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-当然，这里我是确认自己的代码没有问题，所以就不打算再去解决此错误，再次更改 springboot 版本，最终通过 2.2.0 版本完美运行。<br>
-这里就介绍两个可行的版本 1.5.2 和 2.2.0。</p>
+    <p>@ConfigurationProperties:<br>
+ 可以非常方便的把资源文件中的内容绑定对对象上</p>
+<p>@Value(&quot;{<span class="exturl" data-url="aHR0cDovL2FwcC5uYW1l">app.name</span>}&quot;):<br>
+ 注入简单值</p>
+<p>@Import:<br>
+ 通过导入的方式实现把实例加入 springIOC 容器中，作用于类上</p>
+<p>@RequestMapping:<br>
+ 这个注解可以用于类和方法上，用于类上，表示父路径，如类上是 demo，方法上是 /demo1，那么访问路径就是 demo/demo1<br>
+ 该注解有六个属性：<br>
+params: 指定 request 中必须包含某些参数值是，才让该方法处理。<br>
+headers: 指定 request 中必须包含某些指定的 header 值，才能让该方法处理请求。<br>
+value: 指定请求的实际地址，指定的地址可以是 URI Template 模式<br>
+ method: 指定请求的 method 类型， GET、POST、PUT、DELETE 等<br>
+ consumes: 指定处理请求的提交内容类型（Content-Type），如 application/json,text/html;<br>
+produces: 指定返回的内容类型，仅当 request 请求头中的 (Accept) 类型中包含该指定类型才返回</p>
+<p>@PathVariable:<br>
+ 对应路径上的变量，用在参数前，路径上的变量名需和参数名称一致</p>
+<p>@RequestHeader:<br>
+ 获取请求头里面的数据</p>
+<p>@RequestParam:<br>
+ 获取参数</p>
+<p>@RequestBody:<br>
+ 是指方法参数被绑定到 HTTP 请求 Body 上，前端就不能用表单的方式提交了，需要用 json 的方式提交。</p>
+<p>@ResponseBody:<br>
+ 表示输出的是 json 格式的数据。</p>
+<p>@ModelAttribute:<br>
+1. 运用在参数上，会将客户端传递过来的参数按名称注入到指定对象中，并且会将这个对象自动加入 ModelMap 中，便于 View 层使用；<br>
+2. 运用在方法上，会在每一个 @RequestMapping 标注的方法前执行，如果有返回值，则自动将该返回值加入到 ModelMap 中；</p>
+<p>@Bean:<br>
+ 相当于 XML 中的<bean></bean>, 放在方法的上面，而不是类，意思是产生一个 bean, 并交给 spring 管理，作用于方法上。</p>
+<p>@Qualifier:<br>
+ 当有多个同一类型的 Bean 时，可以用 @Qualifier (“name”) 来指定。与 @Autowired 配合使用；</p>
+<p>@Autowired:<br>
+ 属于 Spring 的 org.springframework.beans.factory.annotation 包下，可用于为类的属性、构造器、方法进行注值</p>
+<p>@Component:<br>
+ 标准一个普通的 spring Bean 类。<br>
+@Repository:<br>
+ 标注一个 DAO 组件类。<br>
+@Service:<br>
+ 标注一个业务逻辑组件类。<br>
+@Controller:<br>
+ 标注一个控制器组件类。</p>
+<p>@Component: 可以代替 @Repository、@Service、@Controller，因为这三个注解是被 @Component 标注的。被注解的 java 类当做 Bean 实例，Bean 实例的名称默认是 Bean 类的首字母小写，其他部分不变。@Service 也可以自定义 Bean 名称，但是必须是唯一的！</p>
+<p>@Configuration:<br>
+ 指出该类是 Bean 配置的信息源，相当于 XML 中的<beans></beans>，一般加在主类上。</p>
+<p>@SpringBootApplication:<br>
+ 包含 @Configuration、@EnableAutoConfiguration、@ComponentScan 通常用在启动类上。</p>
+<p>@ComponentScan:<br>
+ 组件扫描。如果扫描到有 @Component @Controller @Service 等这些注解的类，则把这些类注册为 bean。</p>
+<p>@EnableAutoConfiguration:<br>
+ 让 Spring Boot 根据应用所声明的依赖来对 Spring 框架进行自动配置，一般加在主类上。</p>
+<p>@Configuration:<br>
+ 指出该类是 Bean 配置的信息源，相当于 XML 中的<beans></beans>，一般加在主类上。</p>
 
   </div>
 
@@ -177,7 +213,7 @@ TheSqualls = </title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2021-02-02 15:25:45" itemprop="dateModified" datetime="2021-02-02T15:25:45+08:00">2021-02-02</time>
+    <time title="修改时间：2021-04-25 11:18:41" itemprop="dateModified" datetime="2021-04-25T11:18:41+08:00">2021-04-25</time>
   </span>
 </div>
 
@@ -213,7 +249,7 @@ TheSqualls = </title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://thesqualls.github.io/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">https://thesqualls.github.io/2021/02/01/Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present/</a>
+    <a href="https://thesqualls.github.io/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="springboot和spring常用的注解">https://thesqualls.github.io/2021/04/25/springboot和spring常用的注解/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -232,20 +268,20 @@ TheSqualls = </title>
     <div class="item left">
       
 
-  <a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4lm9i7j20zk0m84qp.jpg" title="[Spring预加载]InitializingBean接口">
+  <a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciszlczyj20zk0m816d.jpg" title="springboot的好处？用过哪些加载器">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>[Spring预加载]InitializingBean接口</h3>
+  <h3>springboot的好处？用过哪些加载器</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciusoyjnj219g0u0x56.jpg" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">
+  <a href="/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclflwv2aj20zk0m84qp.jpg" title="hashMap的实现原理">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</h3>
+  <h3>hashMap的实现原理</h3>
   </a>
 
     </div>
@@ -307,12 +343,12 @@ TheSqualls = </title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -336,15 +372,6 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2021/03/22/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" title="[vue]常见概念">[vue]常见概念</a></span>
   </li>
 
@@ -354,7 +381,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
+    <span><a href="/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="springboot和spring常用的注解">springboot和spring常用的注解</a></span>
   </li>
 
       
@@ -363,25 +390,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" title="[Spring预加载]InitializingBean接口">[Spring预加载]InitializingBean接口</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">springboot的好处？用过哪些加载器</a></span>
+    <span><a href="/2021/02/01/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" title="NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute &#39;observe&#39; on &#39;MutationObserver&#39;_ parameter 1 is no">NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute 'observe' on 'MutationObserver'_ parameter 1 is no</a></span>
   </li>
 
       
@@ -399,7 +408,34 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/%5BJSMind%5D%E4%BD%BF%E7%94%A8JSMind%E6%93%8D%E4%BD%9C%E7%94%9F%E6%88%90%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="[JSMind]使用JSMind操作生成的思维导图">[JSMind]使用JSMind操作生成的思维导图</a></span>
+    <span><a href="/2021/02/01/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5DRSA%20PKCS1%E7%A7%81%E9%92%A5%E8%A7%A3%E5%AF%86%E8%8E%B7%E5%8F%96%E5%8A%A0%E5%AF%86%E6%B6%88%E6%81%AF%EF%BC%88JAVA%E5%AE%9E%E7%8E%B0%EF%BC%89/" title="[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）">[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="hashMap的实现原理">hashMap的实现原理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
   </li>
 
       
@@ -417,7 +453,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
+    <span><a href="/2021/02/01/%5Bredis%5Dspring%E6%95%B4%E5%90%88redis/" title="[redis]spring整合redis">[redis]spring整合redis</a></span>
   </li>
 
   </ul>
@@ -448,7 +484,7 @@ TheSqualls = </title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2021/02/01/Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present/',
+    path: '2021/04/25/springboot和spring常用的注解/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"

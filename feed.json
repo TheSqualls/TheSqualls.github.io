@@ -5,6 +5,22 @@
     "home_page_url": "https://TheSqualls.github.io",
     "items": [
         {
+            "id": "https://thesqualls.github.io/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/",
+            "url": "https://thesqualls.github.io/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/",
+            "title": "hashMap的实现原理",
+            "date_published": "2021-04-25T03:17:57.315Z",
+            "content_html": "",
+            "tags": []
+        },
+        {
+            "id": "https://thesqualls.github.io/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/",
+            "url": "https://thesqualls.github.io/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/",
+            "title": "springboot和spring常用的注解",
+            "date_published": "2021-04-25T02:45:54.590Z",
+            "content_html": "<p>@ConfigurationProperties:<br>\n 可以非常方便的把资源文件中的内容绑定对对象上</p>\n<p>@Value(&quot;{<span class=\"exturl\" data-url=\"aHR0cDovL2FwcC5uYW1l\">app.name</span>}&quot;):<br>\n 注入简单值</p>\n<p>@Import:<br>\n 通过导入的方式实现把实例加入 springIOC 容器中，作用于类上</p>\n<p>@RequestMapping:<br>\n 这个注解可以用于类和方法上，用于类上，表示父路径，如类上是 demo，方法上是 /demo1，那么访问路径就是 demo/demo1<br>\n 该注解有六个属性：<br>\nparams: 指定 request 中必须包含某些参数值是，才让该方法处理。<br>\nheaders: 指定 request 中必须包含某些指定的 header 值，才能让该方法处理请求。<br>\nvalue: 指定请求的实际地址，指定的地址可以是 URI Template 模式<br>\n method: 指定请求的 method 类型， GET、POST、PUT、DELETE 等<br>\n consumes: 指定处理请求的提交内容类型（Content-Type），如 application/json,text/html;<br>\nproduces: 指定返回的内容类型，仅当 request 请求头中的 (Accept) 类型中包含该指定类型才返回</p>\n<p>@PathVariable:<br>\n 对应路径上的变量，用在参数前，路径上的变量名需和参数名称一致</p>\n<p>@RequestHeader:<br>\n 获取请求头里面的数据</p>\n<p>@RequestParam:<br>\n 获取参数</p>\n<p>@RequestBody:<br>\n 是指方法参数被绑定到 HTTP 请求 Body 上，前端就不能用表单的方式提交了，需要用 json 的方式提交。</p>\n<p>@ResponseBody:<br>\n 表示输出的是 json 格式的数据。</p>\n<p>@ModelAttribute:<br>\n1. 运用在参数上，会将客户端传递过来的参数按名称注入到指定对象中，并且会将这个对象自动加入 ModelMap 中，便于 View 层使用；<br>\n2. 运用在方法上，会在每一个 @RequestMapping 标注的方法前执行，如果有返回值，则自动将该返回值加入到 ModelMap 中；</p>\n<p>@Bean:<br>\n 相当于 XML 中的<bean></bean>, 放在方法的上面，而不是类，意思是产生一个 bean, 并交给 spring 管理，作用于方法上。</p>\n<p>@Qualifier:<br>\n 当有多个同一类型的 Bean 时，可以用 @Qualifier (“name”) 来指定。与 @Autowired 配合使用；</p>\n<p>@Autowired:<br>\n 属于 Spring 的 org.springframework.beans.factory.annotation 包下，可用于为类的属性、构造器、方法进行注值</p>\n<p>@Component:<br>\n 标准一个普通的 spring Bean 类。<br>\n@Repository:<br>\n 标注一个 DAO 组件类。<br>\n@Service:<br>\n 标注一个业务逻辑组件类。<br>\n@Controller:<br>\n 标注一个控制器组件类。</p>\n<p>@Component: 可以代替 @Repository、@Service、@Controller，因为这三个注解是被 @Component 标注的。被注解的 java 类当做 Bean 实例，Bean 实例的名称默认是 Bean 类的首字母小写，其他部分不变。@Service 也可以自定义 Bean 名称，但是必须是唯一的！</p>\n<p>@Configuration:<br>\n 指出该类是 Bean 配置的信息源，相当于 XML 中的<beans></beans>，一般加在主类上。</p>\n<p>@SpringBootApplication:<br>\n 包含 @Configuration、@EnableAutoConfiguration、@ComponentScan 通常用在启动类上。</p>\n<p>@ComponentScan:<br>\n 组件扫描。如果扫描到有 @Component @Controller @Service 等这些注解的类，则把这些类注册为 bean。</p>\n<p>@EnableAutoConfiguration:<br>\n 让 Spring Boot 根据应用所声明的依赖来对 Spring 框架进行自动配置，一般加在主类上。</p>\n<p>@Configuration:<br>\n 指出该类是 Bean 配置的信息源，相当于 XML 中的<beans></beans>，一般加在主类上。</p>\n",
+            "tags": []
+        },
+        {
             "id": "https://thesqualls.github.io/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/",
             "url": "https://thesqualls.github.io/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/",
             "title": "springboot的好处？用过哪些加载器",
