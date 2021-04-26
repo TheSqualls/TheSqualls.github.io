@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_%20internal%20error%20code,%20arguments_%20[qcsfbdnp_1],%20[],%20[],%20[],%20[],%20[],%20[],%20[]/">
+<link rel="canonical" href="https://thesqualls.github.io/2021/04/26/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B(JMM)/">
 
 
 
   <title>
-[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], [] |
+Java内存模型(JMM) |
 TheSqualls = </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ TheSqualls = </title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []
+  <h1 itemprop="name headline">Java内存模型(JMM)
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2021-02-23 15:44:57">
+  <span class="item" title="创建时间：2021-04-26 11:03:56">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2021-02-23T15:44:57+08:00">2021-02-23</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-04-26T11:03:56+08:00">2021-04-26</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ TheSqualls = </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclize41wj20zk0m87gk.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ TheSqualls = </title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_%20internal%20error%20code,%20arguments_%20[qcsfbdnp_1],%20[],%20[],%20[],%20[],%20[],%20[],%20[]/">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/04/26/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B(JMM)/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -149,45 +149,11 @@ TheSqualls = </title>
   <div class="body md" itemprop="articleBody">
     
 
-    <blockquote>
-<p>此贴讲该错误和网上的大部分不同，此错误是在特定的技术栈框架下触发的。这里的 SQL 通过 ibatis 编写时并不会报错，而仅仅是在 mybatis 框架下编写才会产生报错。</p>
-</blockquote>
-<h4 id="背景"><a class="markdownIt-Anchor" href="#背景">#</a> 背景</h4>
-<ul>
-<li>1、mybatis 采用注解使用 merge into 对多条数据进行操作：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223150131772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>2、由于需要过滤一下 U 表，增加过滤条件：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223150241278.png" alt="在这里插入图片描述"></li>
-<li>3、这个时候就报错了：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223150422653.png" alt="在这里插入图片描述"></li>
-<li>4、此刻很明显的可以定位产生此错误的原因，就是传入参数对 U 表进行过滤的语句；</li>
-<li>5、使用自定义的 provider 类构造 SQL 语句返回执行：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223151220383.png" alt="在这里插入图片描述"><br>
-<img data-src="https://img-blog.csdnimg.cn/20210223151249173.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-并不会报错，接着手动将数据编入 SQL 通过 oracle 客户端执行，执行成功，由此可以判断想要执行的 SQL 语法上是没有问题的。</li>
-</ul>
-<h4 id="解决"><a class="markdownIt-Anchor" href="#解决">#</a> 解决</h4>
-<ul>
-<li>1、判断是不是此处不可以使用子查询，修改 SQL，不传入参数：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223150721128.png" alt="在这里插入图片描述"><br>
-执行该查询，发现并不会报错，由此可以推断，此处并不是子查询的问题，而是通过 mybatis 框架传参导致的问题；</li>
-<li>2、判断是不是由于预编译的原因而导致的问题，使用 $ 符合拼接的方式来创建 SQL：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223152248294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-执行报错：<img data-src="https://img-blog.csdnimg.cn/20210223152311611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-很明显，缺少引号所致，修改 SQL，添加引号：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223152404217.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-执行成功：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223152619306.png" alt="在这里插入图片描述"><br>
-由此可以发现拼接时需要拼上引号才能实现，推断预编译时是否也缺少引号；</li>
-<li>3、使用 #传参时也加上引号：<br>
-<img data-src="https://img-blog.csdnimg.cn/20210223152929919.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<p>报错，由此可以发现参数列与实际接收的参数都不一样了，所以不能通过加引号的方式去解决，查找资料，有人说是 oracle 的 bug，有人说将数据库表的 CURSOR_SHARING = force 注释掉就行了，还有人说与绑定变量有关等等一系列的说法，但通过上述的分析与测验，只能归结于 mybatis 在预编译的时候产生的问题，毕竟在我用 mybatis 的前身 ibatis 时并不会产生此问题，一时半会也无新的解决思路，上述也提到了两种解决方案：</p>
-<ul>
-<li>采用自定义 provider 类构造 SQL 语句返回执行；</li>
-<li>采用引号 +$ 符号拼接的方式将数据传入 SQL 执行；</li>
-</ul>
-<p>这两种方案都是可行的，至于使用预编译为何无法执行的问题只能待以后有新的思路再来解决了。</p>
+    <p>Java内存模型：Java内存模型（Java Memory Model ,JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了Java程序在各种平台下对内存的访问都能保证效果一致的机制及规范。</p>
+<p>Java内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存，线程的工作内存中保存了该线程中是用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存。不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量的传递均需要自己的工作内存和主存之间进行数据同步进行。</p>
+<p>而JMM就作用于工作内存和主存之间数据同步过程。他规定了如何做数据同步以及什么时候做数据同步。</p>
+<p>JMM是一种规范，目的是解决由于多线程通过共享内存进行通信时，存在的本地内存数据不一致、编译器会对代码指令重排序、处理器会对代码乱序执行等带来的问题。目的是保证并发编程场景中的原子性、可见性和有序性。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGZzMjY0MDY2Njk2MC9wLzExMDE5Nzk4Lmh0bWw=">https://www.cnblogs.com/lfs2640666960/p/11019798.html</span></p>
 
   </div>
 
@@ -199,7 +165,7 @@ TheSqualls = </title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2021-02-23 15:44:37" itemprop="dateModified" datetime="2021-02-23T15:44:37+08:00">2021-02-23</time>
+    <time title="修改时间：2021-04-26 15:53:36" itemprop="dateModified" datetime="2021-04-26T15:53:36+08:00">2021-04-26</time>
   </span>
 </div>
 
@@ -235,7 +201,7 @@ TheSqualls = </title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_%20internal%20error%20code,%20arguments_%20[qcsfbdnp_1],%20[],%20[],%20[],%20[],%20[],%20[],%20[]/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">https://thesqualls.github.io/2021/02/23/[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []/</a>
+    <a href="https://thesqualls.github.io/2021/04/26/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B(JMM)/" title="Java内存模型(JMM)">https://thesqualls.github.io/2021/04/26/Java内存模型(JMM)/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -254,22 +220,14 @@ TheSqualls = </title>
     <div class="item left">
       
 
-  <a href="/2021/02/22/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="笔记">
+  <a href="/2021/04/26/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfdu6exj20zk0m87hw.jpg" title="arrayList和LinkedList的区别">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>笔记</h3>
+  <h3>arrayList和LinkedList的区别</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2021/03/22/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicivghyooj20zk0m8dir.jpg" title="[vue]常见概念">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>[vue]常见概念</h3>
-  </a>
-
     </div>
 </div>
 
@@ -286,7 +244,6 @@ TheSqualls = </title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text"> 解决</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -330,12 +287,10 @@ TheSqualls = </title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/02/22/%E7%AC%94%E8%AE%B0/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/03/22/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -359,7 +314,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/03/22/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" title="[vue]常见概念">[vue]常见概念</a></span>
+    <span><a href="/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="hashMap的实现原理">hashMap的实现原理</a></span>
   </li>
 
       
@@ -377,34 +332,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/04/25/hashMap%E5%92%8ChashTable%E7%9A%84%E5%8C%BA%E5%88%AB/" title="hashMap和hashTable的区别">hashMap和hashTable的区别</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/04/26/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="arrayList和LinkedList的区别">arrayList和LinkedList的区别</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="springboot和spring常用的注解">springboot和spring常用的注解</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5BJSMind%5D%E4%BD%BF%E7%94%A8JSMind%E6%93%8D%E4%BD%9C%E7%94%9F%E6%88%90%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="[JSMind]使用JSMind操作生成的思维导图">[JSMind]使用JSMind操作生成的思维导图</a></span>
+    <span><a href="/2021/02/01/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
   </li>
 
       
@@ -422,25 +350,52 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" title="NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute &#39;observe&#39; on &#39;MutationObserver&#39;_ parameter 1 is no">NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute 'observe' on 'MutationObserver'_ parameter 1 is no</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5DRSA%20PKCS1%E7%A7%81%E9%92%A5%E8%A7%A3%E5%AF%86%E8%8E%B7%E5%8F%96%E5%8A%A0%E5%AF%86%E6%B6%88%E6%81%AF%EF%BC%88JAVA%E5%AE%9E%E7%8E%B0%EF%BC%89/" title="[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）">[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2021/02/01/%5Boracle%5Doracle%E6%89%B9%E9%87%8F%E5%88%A4%E6%96%AD%E6%8F%92%E5%85%A5%E8%BF%98%E6%98%AF%E6%9B%B4%E6%96%B0/" title="[oracle]oracle批量判断插入还是更新">[oracle]oracle批量判断插入还是更新</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">springboot的好处？用过哪些加载器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/04/26/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="arrayList和LinkedList的区别">arrayList和LinkedList的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" title="[Spring预加载]InitializingBean接口">[Spring预加载]InitializingBean接口</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/03/22/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" title="[vue]常见概念">[vue]常见概念</a></span>
   </li>
 
   </ul>
@@ -471,7 +426,7 @@ TheSqualls = </title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2021/02/23/[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []/',
+    path: '2021/04/26/Java内存模型(JMM)/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
