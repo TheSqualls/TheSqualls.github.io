@@ -5,8 +5,16 @@
         <link>https://TheSqualls.github.io</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Mon, 26 Apr 2021 11:03:56 +0800</pubDate>
-        <lastBuildDate>Mon, 26 Apr 2021 11:03:56 +0800</lastBuildDate>
+        <pubDate>Tue, 27 Apr 2021 16:59:23 +0800</pubDate>
+        <lastBuildDate>Tue, 27 Apr 2021 16:59:23 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://thesqualls.github.io/2021/04/27/%E7%AE%80%E5%8D%95%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+            <title>简单面试题</title>
+            <link>https://thesqualls.github.io/2021/04/27/%E7%AE%80%E5%8D%95%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+            <pubDate>Tue, 27 Apr 2021 16:59:23 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;1、http和tcp的区别：&lt;br&gt;&lt;br&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFpemhhbnNoaS9wLzg0ODI2MTIuaHRtbA==&#34;&gt;https://www.cnblogs.com/baizhanshi/p/8482612.html&lt;/span&gt; &lt;br&gt;&lt;br&gt;2、== 和 equals的区别：&lt;br&gt;&lt;br&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZ2ptaG9tZS9wLzE0MzM4MjE2Lmh0bWw=&#34;&gt;https://www.cnblogs.com/gjmhome/p/14338216.html&lt;/span&gt; &lt;br&gt;&lt;br&gt;3、String、StringBuffer和StringBuild的区别： &lt;br&gt;&lt;br&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE3MDI0NzkvYXJ0aWNsZS9kZXRhaWxzLzgyMjYyODIz&#34;&gt;https://blog.csdn.net/u011702479/article/details/82262823&lt;/span&gt; &lt;br&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://thesqualls.github.io/2021/04/26/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B(JMM)/</guid>
             <title>Java内存模型(JMM)</title>

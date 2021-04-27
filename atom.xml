@@ -3,7 +3,15 @@
     <id>https://TheSqualls.github.io</id>
     <title></title>
     <link href="https://TheSqualls.github.io" />
-    <updated>2021-04-26T03:03:56.972Z</updated>
+    <updated>2021-04-27T08:59:23.368Z</updated>
+    <entry>
+        <id>https://thesqualls.github.io/2021/04/27/%E7%AE%80%E5%8D%95%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
+        <title>简单面试题</title>
+        <link rel="alternate" href="https://thesqualls.github.io/2021/04/27/%E7%AE%80%E5%8D%95%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+        <content type="html">&lt;p&gt;1、http和tcp的区别：&lt;br&gt;&lt;br&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFpemhhbnNoaS9wLzg0ODI2MTIuaHRtbA==&#34;&gt;https://www.cnblogs.com/baizhanshi/p/8482612.html&lt;/span&gt; &lt;br&gt;&lt;br&gt;2、== 和 equals的区别：&lt;br&gt;&lt;br&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZ2ptaG9tZS9wLzE0MzM4MjE2Lmh0bWw=&#34;&gt;https://www.cnblogs.com/gjmhome/p/14338216.html&lt;/span&gt; &lt;br&gt;&lt;br&gt;3、String、StringBuffer和StringBuild的区别： &lt;br&gt;&lt;br&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTE3MDI0NzkvYXJ0aWNsZS9kZXRhaWxzLzgyMjYyODIz&#34;&gt;https://blog.csdn.net/u011702479/article/details/82262823&lt;/span&gt; &lt;br&gt;&lt;/p&gt;
+</content>
+        <updated>2021-04-27T08:59:23.368Z</updated>
+    </entry>
     <entry>
         <id>https://thesqualls.github.io/2021/04/26/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B(JMM)/</id>
         <title>Java内存模型(JMM)</title>
