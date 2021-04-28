@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://thesqualls.github.io/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/">
+<link rel="canonical" href="https://thesqualls.github.io/2021/04/28/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E4%B8%80/">
 
 
 
   <title>
-Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present |
+java基础面试一 |
 TheSqualls = </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ TheSqualls = </title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present
+  <h1 itemprop="name headline">java基础面试一
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2021-02-01 16:13:00">
+  <span class="item" title="创建时间：2021-04-28 13:15:36">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2021-02-01T16:13:00+08:00">2021-02-01</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-04-28T13:15:36+08:00">2021-04-28</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ TheSqualls = </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciundwu5j20zk0m8n9e.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ TheSqualls = </title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/04/28/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E4%B8%80/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -149,23 +149,15 @@ TheSqualls = </title>
   <div class="body md" itemprop="articleBody">
     
 
-    <blockquote>
-<p>通过实体类来生成数据库表，从而减少报错和实体类与数据库中字段不符而产生的一系列问题</p>
-</blockquote>
-<p>搭好了一切环境后，项目运行：<strong>java.lang.IllegalArgumentException: At least one JPA metamodel must be present!</strong><br>
- 报错截图：<br>
-<img data-src="https://img-blog.csdnimg.cn/20191230160432160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-在网上找了很多方式，大多都是修改启动类，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">@EnableAutoConfiguration(exclude&#x3D;&#123;</span><br><span class="line">        JpaRepositoriesAutoConfiguration.class&#x2F;&#x2F;禁止springboot自动加载持久化bean</span><br><span class="line">&#125;)</span><br><span class="line">public class OrmtestApplication &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(OrmtestApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里项目的确不会报错，但是我们的配置文件的数据源 datasource 也不会被加载，就是说你的数据库用户名密码是否正确都无法进行判断。当然也无法实现我所需要的通过使用实体类生成数据库表功能。</p>
-<p>网上的第二种方式：<br>
-去掉 spring-boot-starter-data-jpa 包的依赖版本，如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>但是不管有没有依赖版本我都试过了，然并卵。<br>
-所幸放弃了网上的解决方式，怀疑是依赖的冲突问题，更换 2.0.0 的 springboot 版本，报的错误发生了改变：<br>
-<img data-src="https://img-blog.csdnimg.cn/20191230161911246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-当然，这里我是确认自己的代码没有问题，所以就不打算再去解决此错误，再次更改 springboot 版本，最终通过 2.2.0 版本完美运行。<br>
-这里就介绍两个可行的版本 1.5.2 和 2.2.0。</p>
+    <h4 id="1、-amp-和-amp-amp-的区别："><a href="#1、-amp-和-amp-amp-的区别：" class="headerlink" title="1、&amp;和&amp;&amp;的区别："></a>1、&amp;和&amp;&amp;的区别：</h4><p>&amp;运算符有两种用法：(1)按位与；(2)逻辑与。&amp;&amp;运算符是短路和运算。逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是true整个表达式才是true。&amp;&amp;之所以称为短路运算是因为，如果&amp;&amp;左边的表达式的值是false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&amp;&amp;而不是&amp;，例如在验证用户登录时判定用户名不是null而且不是空字符串，应当写为：username!=null&amp;&amp;!username.equals(“”)，二者的顺序不能交换，更不能用&amp;运算符，因为第一个条件如果不成立，根本不能进行字符串的equals比较，否则会产生NullPointerException异常。<br></p>
+<h4 id="2、int和integer的区别："><a href="#2、int和integer的区别：" class="headerlink" title="2、int和integer的区别："></a>2、int和integer的区别：</h4><p>java采用的是面向对象编程语言，但是为了编程的方便还是引入了基本数据类型，但是为了能够将这些基本数据类型当成对象操作，java为每一个基本数据类型都引入了对应的包装类型(wrapper class),int的包装类就是integer，从java5开始引入了自动装箱/拆箱机制，使得二者可以相互转换。<br><br>java为每个原始数据类型提供了包装类型：</p>
+<ul>
+<li>原始类型：boolean，char，byte，short，int，long，float，double</li>
+<li>包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</li>
+</ul>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class AutoUnboxingTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Integer a &#x3D; new Integer(3);</span><br><span class="line">        Integer b &#x3D; 3;                  &#x2F;&#x2F; 将3自动装箱成Integer类型</span><br><span class="line">        int c &#x3D; 3;</span><br><span class="line">        System.out.println(a &#x3D;&#x3D; b);     &#x2F;&#x2F; false 两个引用没有引用同一对象</span><br><span class="line">        System.out.println(a &#x3D;&#x3D; c);     &#x2F;&#x2F; true a自动拆箱成int类型再和c比较</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
   </div>
 
@@ -177,7 +169,7 @@ TheSqualls = </title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2021-02-02 15:25:45" itemprop="dateModified" datetime="2021-02-02T15:25:45+08:00">2021-02-02</time>
+    <time title="修改时间：2021-04-28 13:35:23" itemprop="dateModified" datetime="2021-04-28T13:35:23+08:00">2021-04-28</time>
   </span>
 </div>
 
@@ -213,7 +205,7 @@ TheSqualls = </title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://thesqualls.github.io/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">https://thesqualls.github.io/2021/02/01/Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present/</a>
+    <a href="https://thesqualls.github.io/2021/04/28/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E4%B8%80/" title="java基础面试一">https://thesqualls.github.io/2021/04/28/java基础面试一/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -232,22 +224,14 @@ TheSqualls = </title>
     <div class="item left">
       
 
-  <a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeudstjqj20zk0m8k3r.jpg" title="[Spring预加载]InitializingBean接口">
+  <a href="/2021/04/27/%E7%AE%80%E5%8D%95%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeun65urj20zk0m81ii.jpg" title="简单面试题">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>[Spring预加载]InitializingBean接口</h3>
+  <h3>简单面试题</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevo9j1jj20zk0m8e81.jpg" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</h3>
-  </a>
-
     </div>
 </div>
 
@@ -264,6 +248,7 @@ TheSqualls = </title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、-amp-和-amp-amp-的区别："><span class="toc-number">1.</span> <span class="toc-text">1、&amp;和&amp;&amp;的区别：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、int和integer的区别："><span class="toc-number">2.</span> <span class="toc-text">2、int和integer的区别：</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -307,12 +292,10 @@ TheSqualls = </title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -336,33 +319,6 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2021/04/26/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B(JMM)/" title="Java内存模型(JMM)">Java内存模型(JMM)</a></span>
   </li>
 
@@ -372,25 +328,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/04/26/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="arrayList和LinkedList的区别">arrayList和LinkedList的区别</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" title="[Spring预加载]InitializingBean接口">[Spring预加载]InitializingBean接口</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5Bredis%5Dspring%E6%95%B4%E5%90%88redis/" title="[redis]spring整合redis">[redis]spring整合redis</a></span>
+    <span><a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">springboot的好处？用过哪些加载器</a></span>
   </li>
 
       
@@ -408,7 +346,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/%5Boracle%5Doracle%E6%89%B9%E9%87%8F%E5%88%A4%E6%96%AD%E6%8F%92%E5%85%A5%E8%BF%98%E6%98%AF%E6%9B%B4%E6%96%B0/" title="[oracle]oracle批量判断插入还是更新">[oracle]oracle批量判断插入还是更新</a></span>
+    <span><a href="/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present</a></span>
   </li>
 
       
@@ -417,7 +355,52 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">springboot的好处？用过哪些加载器</a></span>
+    <span><a href="/2021/02/01/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5DRSA%20PKCS1%E7%A7%81%E9%92%A5%E8%A7%A3%E5%AF%86%E8%8E%B7%E5%8F%96%E5%8A%A0%E5%AF%86%E6%B6%88%E6%81%AF%EF%BC%88JAVA%E5%AE%9E%E7%8E%B0%EF%BC%89/" title="[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）">[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/04/26/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="arrayList和LinkedList的区别">arrayList和LinkedList的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/%5Bredis%5Dspring%E6%95%B4%E5%90%88redis/" title="[redis]spring整合redis">[redis]spring整合redis</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/04/28/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E4%B8%80/" title="java基础面试一">java基础面试一</a></span>
   </li>
 
   </ul>
@@ -448,7 +431,7 @@ TheSqualls = </title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2021/02/01/Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present/',
+    path: '2021/04/28/java基础面试一/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
