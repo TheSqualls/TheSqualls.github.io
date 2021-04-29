@@ -3,7 +3,15 @@
     <id>https://TheSqualls.github.io</id>
     <title></title>
     <link href="https://TheSqualls.github.io" />
-    <updated>2021-04-29T01:44:45.424Z</updated>
+    <updated>2021-04-29T08:43:52.461Z</updated>
+    <entry>
+        <id>https://thesqualls.github.io/2021/04/29/JVM/</id>
+        <title>JVM</title>
+        <link rel="alternate" href="https://thesqualls.github.io/2021/04/29/JVM/"/>
+        <content type="html">&lt;h3 id=&#34;java虚拟机的作用是什么？&#34;&gt;&lt;a href=&#34;#java虚拟机的作用是什么？&#34; class=&#34;headerlink&#34; title=&#34;java虚拟机的作用是什么？&#34;&gt;&lt;/a&gt;java虚拟机的作用是什么？&lt;/h3&gt;&lt;p&gt;java虚拟机可以让java语言编译程序只需生成在java虚拟机上运行的字节码文件就能在多种不同平台运行。&lt;/p&gt;
+</content>
+        <updated>2021-04-29T08:43:52.461Z</updated>
+    </entry>
     <entry>
         <id>https://thesqualls.github.io/2021/04/29/%E7%BA%BF%E7%A8%8B/</id>
         <title>线程</title>

@@ -5,6 +5,14 @@
     "home_page_url": "https://TheSqualls.github.io",
     "items": [
         {
+            "id": "https://thesqualls.github.io/2021/04/29/JVM/",
+            "url": "https://thesqualls.github.io/2021/04/29/JVM/",
+            "title": "JVM",
+            "date_published": "2021-04-29T08:43:52.461Z",
+            "content_html": "<h3 id=\"java虚拟机的作用是什么？\"><a href=\"#java虚拟机的作用是什么？\" class=\"headerlink\" title=\"java虚拟机的作用是什么？\"></a>java虚拟机的作用是什么？</h3><p>java虚拟机可以让java语言编译程序只需生成在java虚拟机上运行的字节码文件就能在多种不同平台运行。</p>\n",
+            "tags": []
+        },
+        {
             "id": "https://thesqualls.github.io/2021/04/29/%E7%BA%BF%E7%A8%8B/",
             "url": "https://thesqualls.github.io/2021/04/29/%E7%BA%BF%E7%A8%8B/",
             "title": "线程",

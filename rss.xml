@@ -5,8 +5,16 @@
         <link>https://TheSqualls.github.io</link>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Thu, 29 Apr 2021 09:44:45 +0800</pubDate>
-        <lastBuildDate>Thu, 29 Apr 2021 09:44:45 +0800</lastBuildDate>
+        <pubDate>Thu, 29 Apr 2021 16:43:52 +0800</pubDate>
+        <lastBuildDate>Thu, 29 Apr 2021 16:43:52 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://thesqualls.github.io/2021/04/29/JVM/</guid>
+            <title>JVM</title>
+            <link>https://thesqualls.github.io/2021/04/29/JVM/</link>
+            <pubDate>Thu, 29 Apr 2021 16:43:52 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;java虚拟机的作用是什么？&#34;&gt;&lt;a href=&#34;#java虚拟机的作用是什么？&#34; class=&#34;headerlink&#34; title=&#34;java虚拟机的作用是什么？&#34;&gt;&lt;/a&gt;java虚拟机的作用是什么？&lt;/h3&gt;&lt;p&gt;java虚拟机可以让java语言编译程序只需生成在java虚拟机上运行的字节码文件就能在多种不同平台运行。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://thesqualls.github.io/2021/04/29/%E7%BA%BF%E7%A8%8B/</guid>
             <title>线程</title>
