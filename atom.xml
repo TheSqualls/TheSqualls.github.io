@@ -20,6 +20,22 @@
 &lt;li&gt;通过策略模式将不同的明文类型进行不同方式的解析并通过 sdk 根据参数拉取相关媒体文件保存至数据库。&lt;/li&gt;
 &lt;li&gt;将此次拉取的返回的消息索引保存至 redis 中。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;企业微信自建应用接收消息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#企业微信自建应用接收消息&#34;&gt;#&lt;/a&gt; 企业微信自建应用接收消息：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，在企业微信后台配置自建应用接收的 URL、Token、EncodingAESKey；&lt;/li&gt;
+&lt;li&gt;接收企业微信的验证消息，通过参数 msg_signature 对请求进行校验，确认调用者的合法性；&lt;/li&gt;
+&lt;li&gt;解密 echostr 参数得到消息内容并返回消息明文，验证通过；&lt;/li&gt;
+&lt;li&gt;正式接收消息也是先校验调用者的合法性，解密得到消息明文将明文存储至队列；&lt;/li&gt;
+&lt;li&gt;采用定时任务定时解析队列中的消息明文，对不同的消息采用不同的消息策略进行解析并保存至数据库。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pc端用户在线心跳&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pc端用户在线心跳&#34;&gt;#&lt;/a&gt; pc 端用户在线心跳：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用户登录后会在在线表内插入一条在线数据，标识为 userCode 和 sessionId；&lt;/li&gt;
+&lt;li&gt;pc 端会每隔 30 秒给后台发送一次请求，携带有唯一的 userCode 和 sessionId；&lt;/li&gt;
+&lt;li&gt;服务端拿到 userCode 和 sessionId 保存至 map 中并转换为 JSON 格式的 String 字符串，以该字符串为值，当前时间戳为分数，存入到 redis 的有序集合中；&lt;/li&gt;
+&lt;li&gt;接着创建定时任务每隔一分钟取出该键中的值与分数，通过解析出来的 userCode 和 sessionId 去数据库中查找到对应的数据列更新在线时间为对应分数对应的时间；&lt;/li&gt;
+&lt;li&gt;最后，删除掉二十分钟没有更新数据列在线时间的数据。&lt;/li&gt;
+&lt;/ul&gt;
 </content>
         <updated>2021-05-06T03:04:10.616Z</updated>
     </entry>
