@@ -5,6 +5,14 @@
     "home_page_url": "https://TheSqualls.github.io",
     "items": [
         {
+            "id": "https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/",
+            "url": "https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/",
+            "title": "项目问题",
+            "date_published": "2021-05-06T03:04:10.616Z",
+            "content_html": "<h3 id=\"企业微信会话存档流程\"><a class=\"markdownIt-Anchor\" href=\"#企业微信会话存档流程\">#</a> 企业微信会话存档流程：</h3>\n<ul>\n<li>身份校验：在企业微信后台设置公钥与可信 ip；</li>\n<li>将密匙等校验解密数据存储至数据库；</li>\n<li>企业微信端会通过公钥加密聊天数据后保存并提供调用；</li>\n<li>通过企业微信 id 获取 redis 中获取该公司上一次拉取到的聊天数据索引；</li>\n<li>项目中调用 sdk 根据参数拉取消息内容并返回加密数据；</li>\n<li>根据企业微信 id 查询相关密匙并使用密匙解密 key；</li>\n<li>解密 key 与密文通过 sdk 得到明文消息；</li>\n<li>通过策略模式将不同的明文类型进行不同方式的解析并通过 sdk 根据参数拉取相关媒体文件保存至数据库。</li>\n<li>将此次拉取的返回的消息索引保存至 redis 中。</li>\n</ul>\n",
+            "tags": []
+        },
+        {
             "id": "https://thesqualls.github.io/2021/04/29/JVM/",
             "url": "https://thesqualls.github.io/2021/04/29/JVM/",
             "title": "JVM",

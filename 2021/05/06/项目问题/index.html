@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://thesqualls.github.io/2021/03/22/[vue]%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/">
+<link rel="canonical" href="https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">
 
 
 
   <title>
-[vue]常见概念 |
+项目问题 |
 TheSqualls = </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ TheSqualls = </title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">[vue]常见概念
+  <h1 itemprop="name headline">项目问题
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2021-03-22 14:45:31">
+  <span class="item" title="创建时间：2021-05-06 11:04:10">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2021-03-22T14:45:31+08:00">2021-03-22</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-05-06T11:04:10+08:00">2021-05-06</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ TheSqualls = </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicm07ih54j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ TheSqualls = </title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/03/22/[vue]%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -149,21 +149,18 @@ TheSqualls = </title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p><strong>什么是vue的生命周期?</strong></p>
-<p>vue实例从创建到销毁的过程，就是vue的生命周期。也就是从开始创建、初始化数据、编译模板、挂载dom-渲染、更新-渲染、卸载等一系列的过程，这个过程称之为vue的生命周期。</p>
-<p><strong>vue有哪些钩子函数?</strong></p>
+    <h3 id="企业微信会话存档流程"><a class="markdownIt-Anchor" href="#企业微信会话存档流程">#</a> 企业微信会话存档流程：</h3>
 <ul>
-<li>beforecreate：创建前方法：dom、methods、data都无法获取</li>
-<li>created：创建后方法：dom无法获取；methods、data可以获取；</li>
-<li>beforemount：载入前方法：dom无法获取；methods、data、el可以获取；</li>
-<li>mountd：载入后方法：dom、methods、data都可以获取</li>
-<li>breforeupdate：更新前方法</li>
-<li>updated：更新后方法</li>
-<li>beforedestory：销毁前方法</li>
-<li>destoryed：销毁后方法</li>
+<li>身份校验：在企业微信后台设置公钥与可信 ip；</li>
+<li>将密匙等校验解密数据存储至数据库；</li>
+<li>企业微信端会通过公钥加密聊天数据后保存并提供调用；</li>
+<li>通过企业微信 id 获取 redis 中获取该公司上一次拉取到的聊天数据索引；</li>
+<li>项目中调用 sdk 根据参数拉取消息内容并返回加密数据；</li>
+<li>根据企业微信 id 查询相关密匙并使用密匙解密 key；</li>
+<li>解密 key 与密文通过 sdk 得到明文消息；</li>
+<li>通过策略模式将不同的明文类型进行不同方式的解析并通过 sdk 根据参数拉取相关媒体文件保存至数据库。</li>
+<li>将此次拉取的返回的消息索引保存至 redis 中。</li>
 </ul>
-<p><strong>dom渲染在哪个周期完成?</strong></p>
-<p>mounted中完成</p>
 
   </div>
 
@@ -175,7 +172,7 @@ TheSqualls = </title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2021-03-22 15:02:44" itemprop="dateModified" datetime="2021-03-22T15:02:44+08:00">2021-03-22</time>
+    <time title="修改时间：2021-05-06 11:27:27" itemprop="dateModified" datetime="2021-05-06T11:27:27+08:00">2021-05-06</time>
   </span>
 </div>
 
@@ -211,7 +208,7 @@ TheSqualls = </title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://thesqualls.github.io/2021/03/22/[vue]%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" title="[vue]常见概念">https://thesqualls.github.io/2021/03/22/[vue]常见概念/</a>
+    <a href="https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/" title="项目问题">https://thesqualls.github.io/2021/05/06/项目问题/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -230,22 +227,14 @@ TheSqualls = </title>
     <div class="item left">
       
 
-  <a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm07ih54j20zk0m84qp.jpg" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">
+  <a href="/2021/04/29/JVM/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipet4bz0yj20zk0m8e81.jpg" title="JVM">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</h3>
+  <h3>JVM</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciusoyjnj219g0u0x56.jpg" title="springboot的好处？用过哪些加载器">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>springboot的好处？用过哪些加载器</h3>
-  </a>
-
     </div>
 </div>
 
@@ -262,6 +251,7 @@ TheSqualls = </title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#企业微信会话存档流程"><span class="toc-number">1.</span> <span class="toc-text"> 企业微信会话存档流程：</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -305,12 +295,10 @@ TheSqualls = </title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/04/13/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -334,24 +322,6 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/04/25/hashMap%E5%92%8ChashTable%E7%9A%84%E5%8C%BA%E5%88%AB/" title="hashMap和hashTable的区别">hashMap和hashTable的区别</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/01/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2021/02/01/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5D%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="[企业微信二次开发]不同环境部署">[企业微信二次开发]不同环境部署</a></span>
   </li>
 
@@ -361,16 +331,7 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="hashMap的实现原理">hashMap的实现原理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
+    <span><a href="/2021/04/25/springboot%E5%92%8Cspring%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="springboot和spring常用的注解">springboot和spring常用的注解</a></span>
   </li>
 
       
@@ -388,7 +349,25 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/%5Boracle%5Doracle%E6%89%B9%E9%87%8F%E5%88%A4%E6%96%AD%E6%8F%92%E5%85%A5%E8%BF%98%E6%98%AF%E6%9B%B4%E6%96%B0/" title="[oracle]oracle批量判断插入还是更新">[oracle]oracle批量判断插入还是更新</a></span>
+    <span><a href="/2021/02/01/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/" title="项目问题">项目问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/02/01/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</a></span>
   </li>
 
       
@@ -406,7 +385,16 @@ TheSqualls = </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/02/01/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5DRSA%20PKCS1%E7%A7%81%E9%92%A5%E8%A7%A3%E5%AF%86%E8%8E%B7%E5%8F%96%E5%8A%A0%E5%AF%86%E6%B6%88%E6%81%AF%EF%BC%88JAVA%E5%AE%9E%E7%8E%B0%EF%BC%89/" title="[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）">[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）</a></span>
+    <span><a href="/2021/02/23/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/04/25/hashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="hashMap的实现原理">hashMap的实现原理</a></span>
   </li>
 
       
@@ -446,7 +434,7 @@ TheSqualls = </title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2021/03/22/[vue]常见概念/',
+    path: '2021/05/06/项目问题/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
