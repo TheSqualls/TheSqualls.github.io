@@ -25,7 +25,7 @@
 &lt;li&gt;SERIALIZABLE 串行化：可避免脏读、不可重复读、幻读，但性能影响大。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;脏读：读取到其他事务未提交的数据；&lt;br/&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;不可重复读：一个事务执行的过程中读同一个数据读到了两个不同的值：事务a先修改num&lt;br&gt;字段的值由101-》102并提交，事务b此时读取到num为102，接着事务a又修改num的值由102-》103&lt;br&gt;，事务b再次读取num得到103，两次读取到的结果不相同，这就是不可重复读；&lt;br/&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;幻读：一个事务操作在本地查询数据时只能看到3条，但是当执行更新时，却会更新4条：事务a&lt;br&gt;操作user表时读取到了3条数据，此时事务b往user表中插入一条数据，但由于事务的隔离级别限制，&lt;br&gt;导致事务a仍然只能读取到3条数据，但是当事务a执行更新并提交事务时，会发现4条数据都被更新。&lt;/strong&gt;&lt;/p&gt;
- ]]></description>
+&lt;h3 id=&#34;事务的传播特性：&#34;&gt;&lt;a href=&#34;#事务的传播特性：&#34; class=&#34;headerlink&#34; title=&#34;事务的传播特性：&#34;&gt;&lt;/a&gt;事务的传播特性：&lt;/h3&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/</guid>
@@ -75,12 +75,14 @@
             <title>线程</title>
             <link>https://thesqualls.github.io/2021/04/29/%E7%BA%BF%E7%A8%8B/</link>
             <pubDate>Thu, 29 Apr 2021 09:44:45 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;请你解释一下什么是线程池-thread-pool&#34;&gt;&lt;a href=&#34;#请你解释一下什么是线程池-thread-pool&#34; class=&#34;headerlink&#34; title=&#34;请你解释一下什么是线程池(thread pool)?&#34;&gt;&lt;/a&gt;请你解释一下什么是线程池(thread pool)?&lt;/h3&gt;&lt;p&gt;由于创建一个对象要获取内存资源或者其他更多资源，所以创建和销毁对象很费时间，所以提高服务程序效率的一个手段就是尽可能减少创建和销毁对象的次数，特别是一些很耗资源的对象创建和销毁，这就是“池化资源”技术产生的原因。线程池顾名思义就是事先创建若干个可执行的线程放入一个池(容器)中，需要的时候从池中获取线程不用自行创建，使用完毕后不需要销毁线程而是放到池中，从而减少创建和销毁对象的开销。&lt;br&gt;常用的线程池：&lt;/p&gt;
+            <description><![CDATA[ &lt;h3 id=&#34;请你解释一下什么是线程池thread-pool&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#请你解释一下什么是线程池thread-pool&#34;&gt;#&lt;/a&gt; 请你解释一下什么是线程池 (thread pool)?&lt;/h3&gt;
+&lt;p&gt;由于创建一个对象要获取内存资源或者其他更多资源，所以创建和销毁对象很费时间，所以提高服务程序效率的一个手段就是尽可能减少创建和销毁对象的次数，特别是一些很耗资源的对象创建和销毁，这就是 “池化资源” 技术产生的原因。线程池顾名思义就是事先创建若干个可执行的线程放入一个池 (容器) 中，需要的时候从池中获取线程不用自行创建，使用完毕后不需要销毁线程而是放到池中，从而减少创建和销毁对象的开销。&lt;br&gt;
+常用的线程池：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;CachedThreadPool:可缓存的线程池，该线程池中没有核心线程，非核心线程的数量为Integer.max_value，就是无限大，当有需要时创建线程来执行任务，没有需要时回收线程，适用于耗时少，任务量大的情况。&lt;/li&gt;
-&lt;li&gt;SecudleThreadPool:周期性执行任务的线程池，按照某种特定的计划执行线程中的任务，有核心线程，但也有非核心线程，非核心线程的大小也为无限大。适用于执行周期性的任务。&lt;/li&gt;
-&lt;li&gt;SingleThreadPool:只有一条线程来执行任务，适用于有顺序的任务的应用场景。&lt;/li&gt;
-&lt;li&gt;FixedThreadPool:定长的线程池，有核心线程，核心线程的即为最大的线程数量，没有非核心线程。&lt;/li&gt;
+&lt;li&gt;CachedThreadPool: 可缓存的线程池，该线程池中没有核心线程，非核心线程的数量为 Integer.max_value，就是无限大，当有需要时创建线程来执行任务，没有需要时回收线程，适用于耗时少，任务量大的情况。&lt;/li&gt;
+&lt;li&gt;SecudleThreadPool: 周期性执行任务的线程池，按照某种特定的计划执行线程中的任务，有核心线程，但也有非核心线程，非核心线程的大小也为无限大。适用于执行周期性的任务。&lt;/li&gt;
+&lt;li&gt;SingleThreadPool: 只有一条线程来执行任务，适用于有顺序的任务的应用场景。&lt;/li&gt;
+&lt;li&gt;FixedThreadPool: 定长的线程池，有核心线程，核心线程的即为最大的线程数量，没有非核心线程。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;定义线程池的几大参数：&lt;/p&gt;
 &lt;ul&gt;
@@ -90,14 +92,26 @@
 &lt;li&gt;unit：计算时间的单位；&lt;/li&gt;
 &lt;li&gt;workQueue：等待队列，任务可以储存在任务队列中等待被执行，执行的原则是先进先出原则；&lt;/li&gt;
 &lt;li&gt;threadFactory：创建线程的工厂；&lt;/li&gt;
-&lt;li&gt;handler：任务队列满了之后的策略：&lt;ul&gt;
-&lt;li&gt;第一种AbortPolicy：不执行新任务，直接抛出异常，提示线程池已满；&lt;/li&gt;
-&lt;li&gt;第二种DisCardPolicy：不执行新任务，也不抛出异常；&lt;/li&gt;
-&lt;li&gt;第三种DisCardOldPolicy：将消息队列中的第一个任务替换为当前新进来的任务执行；&lt;/li&gt;
-&lt;li&gt;第四种CallerRunsPolicy：直接调用execute来执行当前任务。&lt;/li&gt;
+&lt;li&gt;handler：任务队列满了之后的策略：
+&lt;ul&gt;
+&lt;li&gt;第一种 AbortPolicy：不执行新任务，直接抛出异常，提示线程池已满；&lt;/li&gt;
+&lt;li&gt;第二种 DisCardPolicy：不执行新任务，也不抛出异常；&lt;/li&gt;
+&lt;li&gt;第三种 DisCardOldPolicy：将消息队列中的第一个任务替换为当前新进来的任务执行；&lt;/li&gt;
+&lt;li&gt;第四种 CallerRunsPolicy：直接调用 execute 来执行当前任务。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;synchronized和lock的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#synchronized和lock的区别&#34;&gt;#&lt;/a&gt; synchronized 和 lock 的区别：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;synchronize 可以给方法和代码块加锁，而 lock 只能给方法加锁；&lt;/li&gt;
+&lt;li&gt;synchronize 无需手动获取锁和释放锁，发生异常会自动解锁，不会出现死锁，lock 需要自己&lt;br&gt;
+手动加锁和释放锁，如 lock () 和 unlock ()，如果忘记使用 unlock ()，则会出现死锁，所以，我们一般&lt;br&gt;
+会在 finally 里面使用 unlock ()。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;补充：&lt;br/&gt;&lt;br&gt;
+synchronize 修饰成员方法时，默认的锁对象，就是当前对象；&lt;br/&gt;&lt;br&gt;
+synchronize 修饰静态方法时，默认的锁对象是当前类的 class 对象；&lt;br/&gt;&lt;br&gt;
+synchronize 修饰代码块时，可以自己来设置锁对象，比如 synchronize (this)。&lt;br/&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
