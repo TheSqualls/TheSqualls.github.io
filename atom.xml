@@ -3,7 +3,27 @@
     <id>https://TheSqualls.github.io</id>
     <title></title>
     <link href="https://TheSqualls.github.io" />
-    <updated>2021-05-06T03:04:10.616Z</updated>
+    <updated>2021-05-08T06:02:32.628Z</updated>
+    <entry>
+        <id>https://thesqualls.github.io/2021/05/08/%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
+        <title>数据库</title>
+        <link rel="alternate" href="https://thesqualls.github.io/2021/05/08/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+        <content type="html">&lt;h3 id=&#34;事务的特性：&#34;&gt;&lt;a href=&#34;#事务的特性：&#34; class=&#34;headerlink&#34; title=&#34;事务的特性：&#34;&gt;&lt;/a&gt;事务的特性：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;原子性：事务中的操作要么都完成，要么都不完成；&lt;/li&gt;
+&lt;li&gt;一致性：事务操作前后都必须满足业务规则约束；&lt;/li&gt;
+&lt;li&gt;隔离性：一个事务的执行不能被其他事务所干扰(设置不同的隔离级别，互相干扰的程度会不同)；&lt;/li&gt;
+&lt;li&gt;持久性：事务一旦提交，结果便是永久的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;事务的隔离级别：解决并发情况下，数据的安全性问题&#34;&gt;&lt;a href=&#34;#事务的隔离级别：解决并发情况下，数据的安全性问题&#34; class=&#34;headerlink&#34; title=&#34;事务的隔离级别：解决并发情况下，数据的安全性问题&#34;&gt;&lt;/a&gt;事务的隔离级别：解决并发情况下，数据的安全性问题&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;READ UNCOMMITED 读未提交：会产生脏读、不可重复读，会幻读；&lt;/li&gt;
+&lt;li&gt;READ COMMITED 读已提交：不会产生脏读；但会产生不可重复读、幻读，ORACLE默认；&lt;/li&gt;
+&lt;li&gt;REPEATABLE READ 可重复读：可避免脏读、不可重复读；会产生幻读，MYSQL默认；&lt;/li&gt;
+&lt;li&gt;SERIALIZABLE 串行化：可避免脏读、不可重复读、幻读，但性能影响大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;脏读：读取到其他事务未提交的数据；&lt;br/&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;不可重复读：一个事务执行的过程中读同一个数据读到了两个不同的值：事务a先修改num&lt;br&gt;字段的值由101-》102并提交，事务b此时读取到num为102，接着事务a又修改num的值由102-》103&lt;br&gt;，事务b再次读取num得到103，两次读取到的结果不相同，这就是不可重复读；&lt;br/&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;幻读：一个事务操作在本地查询数据时只能看到3条，但是当执行更新时，却会更新4条：事务a&lt;br&gt;操作user表时读取到了3条数据，此时事务b往user表中插入一条数据，但由于事务的隔离级别限制，&lt;br&gt;导致事务a仍然只能读取到3条数据，但是当事务a执行更新并提交事务时，会发现4条数据都被更新。&lt;/strong&gt;&lt;/p&gt;
+</content>
+        <updated>2021-05-08T06:02:32.628Z</updated>
+    </entry>
     <entry>
         <id>https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/</id>
         <title>项目问题</title>

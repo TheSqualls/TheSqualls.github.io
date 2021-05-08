@@ -5,6 +5,14 @@
     "home_page_url": "https://TheSqualls.github.io",
     "items": [
         {
+            "id": "https://thesqualls.github.io/2021/05/08/%E6%95%B0%E6%8D%AE%E5%BA%93/",
+            "url": "https://thesqualls.github.io/2021/05/08/%E6%95%B0%E6%8D%AE%E5%BA%93/",
+            "title": "数据库",
+            "date_published": "2021-05-08T06:02:32.628Z",
+            "content_html": "<h3 id=\"事务的特性：\"><a href=\"#事务的特性：\" class=\"headerlink\" title=\"事务的特性：\"></a>事务的特性：</h3><ul>\n<li>原子性：事务中的操作要么都完成，要么都不完成；</li>\n<li>一致性：事务操作前后都必须满足业务规则约束；</li>\n<li>隔离性：一个事务的执行不能被其他事务所干扰(设置不同的隔离级别，互相干扰的程度会不同)；</li>\n<li>持久性：事务一旦提交，结果便是永久的。</li>\n</ul>\n<h3 id=\"事务的隔离级别：解决并发情况下，数据的安全性问题\"><a href=\"#事务的隔离级别：解决并发情况下，数据的安全性问题\" class=\"headerlink\" title=\"事务的隔离级别：解决并发情况下，数据的安全性问题\"></a>事务的隔离级别：解决并发情况下，数据的安全性问题</h3><ul>\n<li>READ UNCOMMITED 读未提交：会产生脏读、不可重复读，会幻读；</li>\n<li>READ COMMITED 读已提交：不会产生脏读；但会产生不可重复读、幻读，ORACLE默认；</li>\n<li>REPEATABLE READ 可重复读：可避免脏读、不可重复读；会产生幻读，MYSQL默认；</li>\n<li>SERIALIZABLE 串行化：可避免脏读、不可重复读、幻读，但性能影响大。</li>\n</ul>\n<p><strong>脏读：读取到其他事务未提交的数据；<br/></strong><br><strong>不可重复读：一个事务执行的过程中读同一个数据读到了两个不同的值：事务a先修改num<br>字段的值由101-》102并提交，事务b此时读取到num为102，接着事务a又修改num的值由102-》103<br>，事务b再次读取num得到103，两次读取到的结果不相同，这就是不可重复读；<br/></strong><br><strong>幻读：一个事务操作在本地查询数据时只能看到3条，但是当执行更新时，却会更新4条：事务a<br>操作user表时读取到了3条数据，此时事务b往user表中插入一条数据，但由于事务的隔离级别限制，<br>导致事务a仍然只能读取到3条数据，但是当事务a执行更新并提交事务时，会发现4条数据都被更新。</strong></p>\n",
+            "tags": []
+        },
+        {
             "id": "https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/",
             "url": "https://thesqualls.github.io/2021/05/06/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/",
             "title": "项目问题",
