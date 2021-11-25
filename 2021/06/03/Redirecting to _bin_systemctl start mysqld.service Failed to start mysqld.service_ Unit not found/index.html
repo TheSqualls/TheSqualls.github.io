@@ -1,0 +1,514 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://thesqualls.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://thesqualls.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://thesqualls.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://thesqualls.github.io/2021/06/03/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/">
+
+
+
+  <title>
+Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found |
+TheSqualls = </title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-03 14:36:03">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-03T14:36:03+08:00">2021-06-03</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">TheSqualls</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/06/03/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="TheSqualls">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>为了在本地服务器下搭建 svn，在 CentOS 中安装 mysql，使用 yum install mysql-server mysql mysql-devel 安装 mysql 却无法启动 mysql 服务</p>
+</blockquote>
+<h4 id="使用service-mysqld-start在centos7中启动mysql报错"><a class="markdownIt-Anchor" href="#使用service-mysqld-start在centos7中启动mysql报错">#</a> 使用 service mysqld start 在 CentOS7 中启动 mysql 报错：</h4>
+<p><img data-src="https://img-blog.csdnimg.cn/20191226135828597.png" alt="在这里插入图片描述"></p>
+<p><strong>在提及该错误前，我们先提到一个 mysql 发展及当期背景</strong>：</p>
+<ul>
+<li>MySQL 是一种开放源代码的关系型数据库管理系统（RDBMS），使用最常用的数据库管理语言–结构化查询语言（SQL）进行数据库管理。</li>
+<li>MySQL 是开放源代码的，因此任何人都可以在 General Public License 的许可下下载并根据个性化的需要对其进行修改。</li>
+<li>在 2008 年 1 月 16 号 MySQL 被 Sun 公司收购。此后，随着 SUN 被甲骨文收购，MySQL 的所有权也落入 Oracle 的手中。</li>
+</ul>
+<p><strong>接着，我们再提到一个新的数据库 mariaDB：</strong></p>
+<ul>
+<li>MariaDB 数据库管理系统是 MySQL 的一个分支，主要由开源社区在维护，采用 GPL 授权许可 MariaDB 的目的是完全兼容 MySQL，包括 API 和命令行，使之能轻松成为 MySQL 的代替品。</li>
+<li>MariaDB 数据库是 MySQL 的创始人开发。</li>
+<li>开发这个 MariaDB 的原因之一是：甲骨文公司收购了 MySQL 后，有将 MySQL 闭源的潜在风险，因此社区采用分支的方式来避开这个风险。 过去一年中，大型互联网用户以及 Linux 发行商纷纷抛弃 MySQL，转投 MariaDB 阵营。MariaDB 是目前最受关注的 MySQL 数据库衍生版，也被视为开源数据库 MySQL 的替代品。<br>
+-MariaDB 虽然被视为 MySQL 数据库的替代品，但它在扩展功能、存储引擎以及一些新的功能改进方面都强过 MySQL。而且从 MySQL 迁移到 MariaDB 也是非常简单的。</li>
+<li>mariaDB 新版本发布速度已经超过了 Oracle 官方的 MySQL 版本，mariaDB 具有比 mysql 更快的复制查询处理，更少的警告和 bug，运行速度更快，更好的功能测试，包含了更丰富的特性 (比如微秒的支持、线程池、子查询优化、组提交、进度报告等) 等等一系列好处。</li>
+</ul>
+<p>介绍了 mysql 与 mariaDB 后，相信大家也明白，mariaDB 和 mysql 哪个更有发展前景，当然，当前可能会有人很疑惑，这跟我报的错有什么关系，不不不，关系大了。你知道在当今时代 yum install mysql-server mysql mysql-devel 安装的是什么嘛？mysql？不不不，是 mariaDB，不相信？那你在运行一下 yum install mysql-server mysql mysql-devel 试试：<br>
+<img data-src="https://img-blog.csdnimg.cn/20191226135507259.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+提示的居然是 MariaDB database server，这你就明白了吧，因为 MariaDB 的维护与功能比 mysql 更稳定更迅捷，CentOS7 下 yum install mysql-server mysql mysql-devel 已经将 mysql 移除，默认安装 MariaDB 了，如果你此时用 service mysqld start 去启动 mysql 数据库，mysql 数据库都没有安装，那怎么能成功呢？启动 MariaDB 还差不多。讲到这里，大家也应该明白为什么使用 yum install mysql-server mysql mysql-devel 安装 mysql 数据库会报这个错误了吧。<br>
+当然，因为是工作需求，即时 MariaDB 再好再优秀，咱也得跟团队来是吧，所以，这里讲一下怎么卸载 MariaDB 安装 mysql：</p>
+<ul>
+<li>查看安装的 MariaDB 列表：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20191226140555276.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>卸载所有安装的 MariaDB (根据自己的 MariaDB 列表执行):</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps mariadb-libs-5.5.64-1.el7.x86_64   </span><br><span class="line">rpm -e --nodeps mariadb-5.5.64-1.el7.x86_64</span><br><span class="line">rpm -e --nodeps mariadb-server-5.5.64-1.el7.x86_64</span><br><span class="line">rpm -e --nodeps mariadb-devel-5.5.64-1.el7.x86_64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>再次查看安装的 MariaDB 列表，确保全部卸载：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下载 mysql 的 repo 源：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;repo.mysql.com&#x2F;mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+<p><strong>可能会产生错误</strong>：-bash: wget: 未找到命令，执行安装 wget 即可，没报该错误可不执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装 mysql-community-release-el7-5.noarch.rpm</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装 mysql</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-server</span><br></pre></td></tr></table></figure>
+<p>等待安装完成即可</p>
+<ul>
+<li>reboot 重启，service mysqld start 启动 mysql 测试。</li>
+</ul>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TheSqualls 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="TheSqualls 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="TheSqualls 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>TheSqualls： </strong>TheSqualls <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://thesqualls.github.io/2021/06/03/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">https://thesqualls.github.io/2021/06/03/Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/06/03/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclga70tsj20zk0m84mr.jpg" title="NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute &#39;observe&#39; on &#39;MutationObserver&#39;_ parameter 1 is no">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute 'observe' on 'MutationObserver'_ parameter 1 is no</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/06/03/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclj61ylzj20zk0m8b29.jpg" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用service-mysqld-start在centos7中启动mysql报错"><span class="toc-number">1.</span> <span class="toc-text"> 使用 service mysqld start 在 CentOS7 中启动 mysql 报错：</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TheSqualls"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">TheSqualls</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">30</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RoZVNxdWFsbHM=" title="https:&#x2F;&#x2F;github.com&#x2F;TheSqualls"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/06/03/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/06/03/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%E9%AB%98%E5%B9%B6%E5%8F%91/" title="高并发">高并发</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5D%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="[企业微信二次开发]不同环境部署">[企业微信二次开发]不同环境部署</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="arrayList和LinkedList的区别">arrayList和LinkedList的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/hashMap%E5%92%8ChashTable%E7%9A%84%E5%8C%BA%E5%88%AB/" title="hashMap和hashTable的区别">hashMap和hashTable的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5DRSA%20PKCS1%E7%A7%81%E9%92%A5%E8%A7%A3%E5%AF%86%E8%8E%B7%E5%8F%96%E5%8A%A0%E5%AF%86%E6%B6%88%E6%81%AF%EF%BC%88JAVA%E5%AE%9E%E7%8E%B0%EF%BC%89/" title="[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）">[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/JVM/" title="JVM">JVM</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5BSpring%E9%A2%84%E5%8A%A0%E8%BD%BD%5DInitializingBean%E6%8E%A5%E5%8F%A3/" title="[Spring预加载]InitializingBean接口">[Spring预加载]InitializingBean接口</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%E7%AC%94%E8%AE%B0/" title="笔记">笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%5BJS%5DJS%E9%9B%86%E5%90%88%E8%BD%AC%E6%8D%A2/" title="[JS]JS集合转换">[JS]JS集合转换</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TheSqualls @ TheSqualls</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/03/Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/vector_1901.model.json"},"display":{"position":"right","width":350,"height":460},"mobile":{"show":true},"react":{"opacity":0.8}});</script></body>
+</html>

@@ -1,0 +1,533 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://thesqualls.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://thesqualls.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://thesqualls.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://thesqualls.github.io/2021/06/03/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/">
+
+
+
+  <title>
+springboot的好处？用过哪些加载器 |
+TheSqualls = </title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">springboot的好处？用过哪些加载器
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-03 14:36:03">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-03T14:36:03+08:00">2021-06-03</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">TheSqualls</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclize41wj20zk0m87gk.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipet4bz0yj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/06/03/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="TheSqualls">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><strong>springboot 的好处？用过哪些加载器</strong></p>
+<ul>
+<li>基于 spring：springboot 基于 spring，所以 spring 有的优点 springboot 也有，不需要开发人员学习一个全新的框架，学习门槛相对较低；</li>
+<li>快速编码：springboot 的依赖包都是基于 maven 的 pom 文件提供的，而 springboot 本身就集成了特别多的第三方框架。以前开发 spring 应用时，需要用到的第三方框架的库都需要开发人员一个一个去寻找；现在不需要了，有些可能只需引入一个 pom.xml，就能把大量需要用到的第三方库自动引入到项目中。所以减少了开发工作量，实现快速编码；</li>
+<li>模块化：基于 springboot 开发的项目可以非常简单的实现模块化编程，这样的话可以非常有效的实现项目的分工合作，减少开发过程中的代码冲突。模块化编程还可以非常高效的实现减少代码的改动量，按需修改模块，降低产生发生事故概率；</li>
+<li>配置简单：springboot 摒弃了繁琐的 xml 配置文件，大量的配置文件经常是导致生产事故的原因。springboot 大量采用 yml 形式的配置文件再加上相应的 Annotation，从而大大减少了配置文件的个数，因为以前的 spring 应用引入一个第三方框架说不定就要添加一个配置文件。举个例子，比如项目中要引入数据库连接池 HikariCP，就需要添加一个关于 HikariCP 数据库连接池的配置文件，但是使用了 springboot 采用 HikariCP 可能就只需要那么几行配置就可以了，因为 Springboot 默认集成 HikariCP 数据库连接池，提供了很多默认的配置；</li>
+<li>便捷部署：springboot 天生就是为了简单、快捷部署而生。springboot 内嵌了 tomcat，不需要额外部署应用服务器 tomcat，只需简单一个 java 运行环境即可，而且启动的命令也非常简单：java -jar xxx-release.jar。同时 springboot 结合现在非常火的技术 Docker、Kubernetes 可以快速实现集群部署；</li>
+<li>有效监控：springboot 集成了非常高效的监控框架，只要引入对 spring-boot-statr-actuator 的依赖，就可以实现对服务性能的监控。结合 springcloud 就可以实现对整个微服务链路的全天候监控。</li>
+</ul>
+<p>Java 类加载器：<br>
+java 类加载器常用的大致有三种：启动 (Bootstrap) 类加载器，扩展 (EXtension) 类加载器，系统 (System) 类加载器；</p>
+<ul>
+<li>启动 (Bootstrap) 类加载器：<br>
+启动类加载器又称为引导类加载器，主要加载的是 JVM 自身需要的类，这个类加载使用 C<ins> 语言实现，是虚拟机自身的一部分，负责将 &lt;java_home&gt;/lib 路径下的核心类库或 - xbootclasspath 参数指定的路径下的 jar 包加载到内存中，注意：由于虚拟机是按文件名识别加载 jar 包的，如 rt.jar，如果文件名不被虚拟机识别，即使把 jar 包丢到 lib 目录下也是没有作用的 (出于安全考虑，Bootstrap 启动类加载器只加载包名为 java、javax、sun 等开头的类)；由于是 C</ins> 实现，没有父类。</li>
+<li>扩展 (EXtension) 类加载器：<br>
+扩展类加载器是指 Sun 公司 (已被 Oracle 收购) 实现的 sun.misc.Launcher$ExtClassLoader 类，由 Java 语言实现的，是 Launcher 的静态内部类，它负责加载 &lt; JAVA_HOME&gt;/lib/ext 目录下或者由系统变量 - Djava.ext.dir 指定位路径中的类库，开发者可以直接使用标准扩展类加载器；由 Java 语言实现，父类加载器为启动类加载器。</li>
+<li>系统 (System) 类加载器：<br>
+也称应用程序加载器是指 Sun 公司实现的 sun.misc.Launcher$AppClassLoader。它负责加载系统类路径 java -classpath 或 - D java.class.path 指定路径下的类库，也就是我们经常用到的 classpath 路径，开发者可以直接使用系统类加载器，一般情况下该类加载是程序中默认的类加载器，通过 ClassLoader#getSystemClassLoader () 方法可以获取到该类加载器。</li>
+</ul>
+<p>java 虚拟机对 class 文件采用的是按需加载的方式，也就是说当需要使用该类时才会将它的 class 文件加载到内存生成 class 对象，而且加载某个类的 class 文件时，java 虚拟机采用的是双亲委托模式。</p>
+<p>装载验证流程：<br>
+每个编写的 “.java” 扩展名文件都存储着需要执行的程序逻辑，这些 “.java” 文件经过 java 编译器编译成拓展名为 “.class” 的文件，“.class” 文件中保存这 java 代码经转换后的虚拟机指令，当需要使用某个类时，虚拟机将会加载它的 “.class” 文件，并创建对应的 class 对象，将 class 文件加载到虚拟机的内存中，这个过程称为类加载，类加载的过程：<br/><br>
+加载–》(验证–》准备–》解析)(链接)–》初始化</p>
+<ul>
+<li>加载：类加载过程的一个阶段：通过一个类的完全限定查找此类字节码文件，并利用字节码文件创建一个 class 对象；<br/><br>
+链接：</li>
+<li>验证：目的在于确保 class 文件的字节流中包含信息符合当前虚拟机要求，不会危害虚拟机安全。主要包括四种验证，文件格式验证，元数据验证，字节码验证，符号引用验证。<br/><br>
+文件格式验证：是否以 0xCAFEBABE 开头，版本号是否合理；<br/><br>
+元数据验证：是否有父亲，继承了 final 类？非抽象类实现了所有的抽象方法；<br/><br>
+字节码验证：运行检查，栈数据类型和操作码数据参数吻合，跳转指令指定到合理的位置；<br/><br>
+符号引用验证：常量池中描述类是否存在，访问的方法或字段是否存在且有足够的权限。</li>
+<li>准备：为类变量 (即 static 修饰的字段变量) 分配内存并设置改类变量的初始值即 0 (如 static int i=5; 这里只将 i 初始化为 0，至于 5 的值将在初始化是赋值)，这里不包含用 final 修饰的 static，因为 final 在编译的时候就分配了，注意这里包含为实例化变量初始化，类变量会分配在方法区中，而实例变量是会随着对象一起分配到 java 堆中。<br>
+分配内存，并为类设置初始值 (方法区中)：
+<ul>
+<li>public static int v=1;</li>
+<li>在准备阶段中，v 会被设置为 0</li>
+<li>在初始化的中才会被设置为 1</li>
+<li>对于 static final 类型，在准备阶段就会被赋上正确的值</li>
+<li>public static final int v=1;</li>
+</ul>
+</li>
+<li>解析：主要将常量池中的符号引用替换为直接引用的过程。符号引用就是一组符号来描述目标，可以是任何字面量，而直接引用就是直接指向目标的指针、相对偏移量或一个间接定位到目标的句柄。有类或接口的解析，字段解析，类方法解析，接口方法解析</li>
+<li>初始化：类加载最后阶段，若该类有超类，则对其进行初始化，执行静态初始化器和静态初始化成员变量 (如前面只初始化了默认值的 static 变量将会在这个阶段赋值，成员变量也将被初始化)。
+<ul>
+<li>执行类构造器
+<ul>
+<li>static 变量赋值语句</li>
+<li>static {} 代码块</li>
+</ul>
+</li>
+<li>子类的调用前保证父类的被调用</li>
+<li>是线程安全的</li>
+</ul>
+</li>
+</ul>
+<p>类加载器的任务是根据一个类的全限定名来读取此类的二进制字节流到 JVM 中，然后转换为一个与目标类对应的 java.lang.class 对象实例。</p>
+<p>双亲委托模式：</p>
+<ul>
+<li>委托 / 概念：当加载一个 class 的时候，当前加载器会先委托父加载器加载，如果父加载器没能加载，则自己加载</li>
+<li>可见：父加载器加载的 class，对子加载器都是可见的，而之类加载的 class 父加载器不知道；</li>
+<li>单一：一个 class 只能被加载一次</li>
+<li>好处：双亲委托模式的好处是 java 类随着它的类加载器一起具备了一种带有优先级的层次关系，通过这种层级关系可以避免类的重复加载，当父类已经加载了该类时，就没有必要子 ClassLoader 再加载一次。其次是考虑安全因素，java 核心 api 中定义类型不会被随意替换，假设通过网络传递一个名为 java.lang.Integer 的类，通过双亲委托模式传递到启动类加载器，而启动类加载器在核心 Java API 发现这个名字的类，发现该类已经被加载，并不会重新加载网络传递过来的 java.lang.Integer，而直接返回已加载过 Integer.class，这样便可以防止核心 API 库被随意篡改。如果我们在 classpath 路径下自定义一个名为 java.lang.SingleInteger 类，该类并不存在 java.lang 中，经过双亲委托模式，传递到启动类加载器中，由于父类加载器路径下并没有该类，所以不会加载，将反向委托给子类加载器加载，最终会通过系统类加载器加载该类。但是这样做是不被允许的，因为 java.lang 是核心 API 包，需要访问权限，强制加载会报出如下异常：<br>
+java.lang.SecurityException: Prohibited package name: java.lang</li>
+</ul>
+<p>类加载器的代理模式：类加载器在尝试自己去查找某个类的字节代码并定义它时，会先代理给其父类加载器，由父类加载器先去尝试加载这个类，依次类推，在介绍代理模式背后的动机之前，首先需要说明一下 Java 虚拟机是如何判定两个类是相同的。java 虚拟机不仅要看类的全名是否相同，还要看加载此类的类加载器是否一样。只有两者都相同的情况，才认为两个类是相同的。即便是同样的字节代码，被不同的类加载器之后所得的类，也是不同的。比如一个 Java 类 com.example.Sample, 编译之后生成了字节代码文件 Sample.class。两个不同的类加载器 ClassLoaderA 和 ClassLoaderB 分别读取了这个 Sample.class 文件，并定义出两个 java.lang.Class 类的实例来表示这个类。这两个实例是不相同的。对于 Java 虚拟机来说，它们是不同的类。试图对这两个类的对象进行相互赋值，会抛出运行时异常 ClassCastException。</p>
+<p>代理模式是为了保证 Java 核心库的类型安全。所有 Java 应用都至少需要引用 java.lang.Object 类，也就是说在运行的时候，java.lang.Object 这个类需要被加载到 Java 虚拟机中。如果这个加载过程由 Java 应用自己的类加载器来完成的话，很可能就存在多个版本的 java.lang.Object 类，而且这些类之间是不兼容的，通过代理模式，对于 Java 核心库的类的加载工作由引导类加载器来统一完成，保证了 Java 应用所使用的都是同一版本的 Java 核心库的类，是互相兼容的。</p>
+<p>不同的类加载器为相同名称的类创建了额外的名称空间。相同名称的类可以并存在 Java 虚拟机中，只需要用不同的类加载器来加载它们即可。不同类加载器加载的类之间是不兼容的，这就相当于在 Java 虚拟机内部创建了一个个互相隔离的 Java 类空间。这种技术在许多框架中都被用到</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-11-25 15:54:55" itemprop="dateModified" datetime="2021-11-25T15:54:55+08:00">2021-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TheSqualls 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="TheSqualls 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="TheSqualls 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>TheSqualls： </strong>TheSqualls <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://thesqualls.github.io/2021/06/03/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">https://thesqualls.github.io/2021/06/03/springboot的好处？用过哪些加载器/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/06/03/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciuv0socj20zk0m8qes.jpg" title="[集合]引用泛型结果集复制">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[集合]引用泛型结果集复制</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/06/03/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewkhf1zj20zk0m81kx.jpg" title="笔记">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>笔记</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TheSqualls"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">TheSqualls</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">30</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RoZVNxdWFsbHM=" title="https:&#x2F;&#x2F;github.com&#x2F;TheSqualls"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/06/03/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/06/03/%E7%AC%94%E8%AE%B0/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5D%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="[企业微信二次开发]不同环境部署">[企业微信二次开发]不同环境部署</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">springboot的好处？用过哪些加载器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5BJSMind%5D%E4%BD%BF%E7%94%A8JSMind%E6%93%8D%E4%BD%9C%E7%94%9F%E6%88%90%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="[JSMind]使用JSMind操作生成的思维导图">[JSMind]使用JSMind操作生成的思维导图</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%5BmongoDB%5D%20MongoTemplate%E5%AE%9E%E7%8E%B0%E5%88%86%E7%BB%84%E8%81%9A%E5%90%88%E5%88%86%E9%A1%B5%E5%80%92%E5%BA%8F%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" title="[mongoDB] MongoTemplate实现分组聚合分页倒序条件查询">[mongoDB] MongoTemplate实现分组聚合分页倒序条件查询</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/JVM/" title="JVM">JVM</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%E7%BA%BF%E7%A8%8B/" title="线程">线程</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/Springboot%E6%95%B4%E5%90%88jpa%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E6%8A%A5%E9%94%99%EF%BC%9AAt%20least%20one%20JPA%20metamodel%20must%20be%20present/" title="Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present">Springboot整合jpa使用实体类生成数据库表报错：At least one JPA metamodel must be present</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/mysql%E4%BD%BF%E7%94%A8/" title="mysql使用">mysql使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" title="[vue]常见概念">[vue]常见概念</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TheSqualls @ TheSqualls</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/03/springboot的好处？用过哪些加载器/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/vector_1901.model.json"},"display":{"position":"right","width":350,"height":460},"mobile":{"show":true},"react":{"opacity":0.8}});</script></body>
+</html>

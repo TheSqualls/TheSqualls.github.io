@@ -1,0 +1,493 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://thesqualls.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://thesqualls.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://thesqualls.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://thesqualls.github.io/2021/06/03/[Spring%E9%A2%84%E5%8A%A0%E8%BD%BD]InitializingBean%E6%8E%A5%E5%8F%A3/">
+
+
+
+  <title>
+[Spring预加载]InitializingBean接口 |
+TheSqualls = </title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">[Spring预加载]InitializingBean接口
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-03 14:36:03">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-03T14:36:03+08:00">2021-06-03</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">TheSqualls</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/06/03/[Spring%E9%A2%84%E5%8A%A0%E8%BD%BD]InitializingBean%E6%8E%A5%E5%8F%A3/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="TheSqualls">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>很多时候我们程序要查询的数据量太大了，无论怎么进行 SQL 优化，查询的时间仍可能达到数秒，这个时候对于用户的体验就是非常不好的，这个时候我们就可以采用预加载的方法，在 Web 容器启动时加载相应的数据查询方法，将得到的数据放入缓存，这样当用户来请求数据的时候，我们就可以将缓存中的数据返回给用户，从而提高用户体验。</p>
+</blockquote>
+<p>实现 InitializingBean 接口是实现 Spring 预加载的采用手段，实现流程：</p>
+<ul>
+<li>
+<p>创建一个 bean (注：InitializingBean 接口是基于 bean 实现的)，实现 InitializingBean 接口，重写 afterPropertiesSet 方法：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoCache</span> <span class="keyword">implements</span> <span class="title">InitializingBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里，afterPropertiesSet 方法是 Web 容器启动会执行的方法，所以我们就可以在该方法内写入我们的初始化方法内容。</p>
+</li>
+<li>
+<p>加入初始化方法：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoCache</span> <span class="keyword">implements</span> <span class="title">InitializingBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="comment">//写入想要随容器启动的查询语句</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>注入 bean 到容器中：<br>
+由于 InitializingBean 接口是基于 bean 实现的，所以我们编写的 bean 要注入到 Spring 容器中，这样我们重写的 afterPropertiesSet 方法就会被 Spring 容器扫描并执行：</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">	xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> xmlns:p=<span class="string">"http://www.springframework.org/schema/p"</span></span><br><span class="line">	xmlns:tx=<span class="string">"http://www.springframework.org/schema/tx"</span> xmlns:aop=<span class="string">"http://www.springframework.org/schema/aop"</span></span><br><span class="line">	xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></span><br><span class="line">	xsi:schemaLocation=<span class="string">"</span></span><br><span class="line"><span class="string">	       http://www.springframework.org/schema/beans </span></span><br><span class="line"><span class="string">           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</span></span><br><span class="line"><span class="string">           http://www.springframework.org/schema/tx </span></span><br><span class="line"><span class="string">           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd</span></span><br><span class="line"><span class="string">           http://www.springframework.org/schema/context</span></span><br><span class="line"><span class="string">           http://www.springframework.org/schema/context/spring-context-3.0.xsd</span></span><br><span class="line"><span class="string">           http://www.springframework.org/schema/aop </span></span><br><span class="line"><span class="string">           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"</span>&gt;  </span><br><span class="line">           </span><br><span class="line">	&lt;bean id=<span class="string">"demoCache"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.gaotime.info.product.web.cache.DemoCache"</span>/&gt; </span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p>这样我们的初始化方法就会被执行了，但是这样仅仅只是执行了一遍，下次用户来请求的时候仍然要执行查询方法，这样我们的查询貌似就没有任何意义了呀，所以我们需要将我们得到的结果存入到缓存中，当用户下次来请求时，就可以直接访问缓存中的数据，提升用户体验：</p>
+</li>
+<li>
+<p>方法一：直接在 afterPropertiesSet 方法内将得到的结果集存入缓存，这里就仅提供思路了，并不累赘多余的代码。</p>
+</li>
+<li>
+<p>方法二：当我们要初始化的类太多，每一个 afterPropertiesSet 方法都需要写一遍存入缓存的语句太麻烦，这个时候我们就可以用到 AOP 的后置通知处理了。<br>
+<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hlamluZ3l1YW42L2FydGljbGUvZGV0YWlscy80NDI3OTIzOT91dG1fbWVkaXVtPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctYmFpZHVqcy0x">Spring AOP 应用实例</span></p>
+</li>
+<li>
+<p>方法三：xml 配置拦截，实际上原理和 aop 是一样的：</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"cacheManagerFactory"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.cache.ehcache.EhCacheManagerFactoryBean"</span></span><br><span class="line">		p:configLocation=<span class="string">"classpath:/cache/ehcache.xml"</span> /&gt;</span><br><span class="line">	&lt;!-- cacheManager工厂类，指定ehcache.xml的位置 --&gt;	</span><br><span class="line">	&lt;bean id=<span class="string">"cacheManagerFactory"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.cache.ehcache.EhCacheManagerFactoryBean"</span></span><br><span class="line">		p:configLocation=<span class="string">"classpath:/cache/ehcache.xml"</span> /&gt;	</span><br><span class="line">		</span><br><span class="line">	&lt;!-- 声明cacheManager --&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"cacheManager"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.cache.ehcache.EhCacheCacheManager"</span> </span><br><span class="line">		p:cacheManager-ref=<span class="string">"cacheManagerFactory"</span> /&gt;		</span><br><span class="line">		</span><br><span class="line">	&lt;bean id=<span class="string">"lowFreCache"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.cache.ehcache.EhCacheFactoryBean"</span>&gt;</span><br><span class="line">	    &lt;property name=<span class="string">"cacheManager"</span> ref=<span class="string">"cacheManagerFactory"</span> /&gt;</span><br><span class="line">	    &lt;property name=<span class="string">"cacheName"</span> value=<span class="string">"lowFreCache"</span> /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"lowFreMethodCacheInterceptor"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.gaotime.info.product.web.util.MethodCacheInterceptor"</span>&gt;</span><br><span class="line">	    &lt;property name=<span class="string">"cache"</span> ref=<span class="string">"lowFreCache"</span>/&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;bean id=<span class="string">"lowFreMethodCachePointCut"</span>	<span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.aop.support.RegexpMethodPointcutAdvisor"</span>&gt;</span><br><span class="line">		&lt;property name=<span class="string">"advice"</span> ref=<span class="string">"lowFreMethodCacheInterceptor"</span> /&gt;</span><br><span class="line">		&lt;property name=<span class="string">"patterns"</span>&gt;</span><br><span class="line">			&lt;list&gt;</span><br><span class="line">				 &lt;value&gt;com.lr.service.impl.DemoServiceImpl\.getCount&lt;/value&gt;		&lt;!--拦截的方法  --&gt;	  </span><br><span class="line">			&lt;/list&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>注：这里用的 ehcache。</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;ehcache xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">	xsi:noNamespaceSchemaLocation=<span class="string">"ehcache.xsd"</span> </span><br><span class="line">	updateCheck=<span class="string">"true"</span></span><br><span class="line">	monitoring=<span class="string">"autodetect"</span>&gt;</span><br><span class="line">	&lt;!--</span><br><span class="line">		On Windows: java.io.tmpdir:[C:\DOCUME~<span class="number">1</span>\joshua\LOCALS~<span class="number">1</span>\Temp\]</span><br><span class="line">		On Solaris: java.io.tmpdir:[/<span class="keyword">var</span>/tmp/]</span><br><span class="line">		On Linux: java.io.tmpdir: [/tmp]</span><br><span class="line">		On Mac OS X: java.io.tmpdir: [/tmp]</span><br><span class="line">		</span><br><span class="line">	&lt;diskStore path=<span class="string">"d:/cache"</span>/&gt;--&gt; &lt;!--使用该标签可以将数据存储至磁盘  --&gt;</span><br><span class="line">	&lt;diskStore path=<span class="string">"java.io.tmpdir/ehcache"</span> /&gt; </span><br><span class="line">	 &lt;!-- 定义缓存时间--&gt;	  </span><br><span class="line">	&lt;cache name=<span class="string">"lowFreCache"</span> </span><br><span class="line">		maxElementsInMemory=<span class="string">"100000"</span></span><br><span class="line">		maxElementsOnDisk=<span class="string">"500000"</span> </span><br><span class="line">		eternal=<span class="string">"false"</span> </span><br><span class="line">		overflowToDisk=<span class="string">"true"</span></span><br><span class="line">		diskPersistent=<span class="string">"false"</span> </span><br><span class="line">		diskSpoolBufferSizeMB=<span class="string">"30"</span> </span><br><span class="line">		timeToIdleSeconds=<span class="string">"900"</span> </span><br><span class="line">		timeToLiveSeconds=<span class="string">"900"</span></span><br><span class="line">		memoryStoreEvictionPolicy=<span class="string">"LFU"</span> /&gt;</span><br><span class="line">&lt;/ehcache&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TheSqualls 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="TheSqualls 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="TheSqualls 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>TheSqualls： </strong>TheSqualls <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://thesqualls.github.io/2021/06/03/[Spring%E9%A2%84%E5%8A%A0%E8%BD%BD]InitializingBean%E6%8E%A5%E5%8F%A3/" title="[Spring预加载]InitializingBean接口">https://thesqualls.github.io/2021/06/03/[Spring预加载]InitializingBean接口/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/06/03/%5BJSMind%5D%E4%BD%BF%E7%94%A8JSMind%E6%93%8D%E4%BD%9C%E7%94%9F%E6%88%90%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipet8c1a2j20zk0m8kct.jpg" title="[JSMind]使用JSMind操作生成的思维导图">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[JSMind]使用JSMind操作生成的思维导图</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/06/03/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh5u05ej20zk0m87df.jpg" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TheSqualls"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">TheSqualls</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">30</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RoZVNxdWFsbHM=" title="https:&#x2F;&#x2F;github.com&#x2F;TheSqualls"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/06/03/%5BJSMind%5D%E4%BD%BF%E7%94%A8JSMind%E6%93%8D%E4%BD%9C%E7%94%9F%E6%88%90%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/06/03/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%E7%AE%80%E5%8D%95%E9%9D%A2%E8%AF%95%E9%A2%98/" title="简单面试题">简单面试题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">springboot的好处？用过哪些加载器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" title="NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute &#39;observe&#39; on &#39;MutationObserver&#39;_ parameter 1 is no">NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute 'observe' on 'MutationObserver'_ parameter 1 is no</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/hashMap%E5%92%8ChashTable%E7%9A%84%E5%8C%BA%E5%88%AB/" title="hashMap和hashTable的区别">hashMap和hashTable的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="arrayList和LinkedList的区别">arrayList和LinkedList的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5DRSA%20PKCS1%E7%A7%81%E9%92%A5%E8%A7%A3%E5%AF%86%E8%8E%B7%E5%8F%96%E5%8A%A0%E5%AF%86%E6%B6%88%E6%81%AF%EF%BC%88JAVA%E5%AE%9E%E7%8E%B0%EF%BC%89/" title="[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）">[企业微信二次开发]RSA PKCS1私钥解密获取加密消息（JAVA实现）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%5BJS%5DJS%E9%9B%86%E5%90%88%E8%BD%AC%E6%8D%A2/" title="[JS]JS集合转换">[JS]JS集合转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" title="[vue]常见概念">[vue]常见概念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E8%BF%87%E6%BB%A4%E5%99%A8Filter%5D%E5%9C%A8%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E8%8E%B7%E5%8F%96bean/" title="[过滤器Filter]在过滤器Filter的初始化方法中获取bean">[过滤器Filter]在过滤器Filter的初始化方法中获取bean</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TheSqualls @ TheSqualls</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/03/[Spring预加载]InitializingBean接口/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/vector_1901.model.json"},"display":{"position":"right","width":350,"height":460},"mobile":{"show":true},"react":{"opacity":0.8}});</script></body>
+</html>

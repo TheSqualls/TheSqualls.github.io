@@ -1,0 +1,507 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://thesqualls.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://thesqualls.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://thesqualls.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://thesqualls.github.io/2021/06/03/[redis]spring%E6%95%B4%E5%90%88redis/">
+
+
+
+  <title>
+[redis]spring整合redis |
+TheSqualls = </title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">[redis]spring整合redis
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-03 14:36:03">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-03T14:36:03+08:00">2021-06-03</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">TheSqualls</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/06/03/[redis]spring%E6%95%B4%E5%90%88redis/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="TheSqualls">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>两种：spring 整合 redis，springboot 整合 redis</p>
+</blockquote>
+<h2 id="spring整合redis"><a class="markdownIt-Anchor" href="#spring整合redis">#</a> spring 整合 redis：</h2>
+<h3 id="1-环境及jar包"><a class="markdownIt-Anchor" href="#1-环境及jar包">#</a> 1、环境及 jar 包：</h3>
+<ul>
+<li>
+<p>环境：jdk1.6；spring+springmvc+ibatis+maven；redis3.2；</p>
+</li>
+<li>
+<p>pom.xml：</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.data<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不使用 maven 可以自行下载 jar 包，复制到项目中：<span class="exturl" data-url="aHR0cHM6Ly9tdm5yZXBvc2l0b3J5LmNvbS9hcnRpZmFjdC9vcmcuc3ByaW5nZnJhbWV3b3JrLmRhdGEvc3ByaW5nLWRhdGEtcmVkaXMvMS43LjEuUkVMRUFTRQ==">jar 下载 1</span>，<span class="exturl" data-url="aHR0cHM6Ly9tdm5yZXBvc2l0b3J5LmNvbS9hcnRpZmFjdC9yZWRpcy5jbGllbnRzL2plZGlzLzIuOC4x">jar 下载 2</span></p>
+</li>
+</ul>
+<h3 id="2-编写redis配置文件"><a class="markdownIt-Anchor" href="#2-编写redis配置文件">#</a> 2、编写 redis 配置文件：</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#redis配置</span><br><span class="line">spring.redis.host=使用的redis主机地址，本地redis即<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">spring.redis.port=redis服务的端口，默认为<span class="number">6379</span></span><br><span class="line">spring.redis.password=redis服务密码</span><br><span class="line">spring.redis.timeout=redis客户端超过该空闲时间会断开</span><br></pre></td></tr></table></figure>
+<p>更多详细配置参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbWV0dS9wLzk2MDk2MDQuaHRtbA==">https://www.cnblogs.com/metu/p/9609604.html</span><br>
+ 文件名可任取，后缀为 properties</p>
+<h3 id="3-spring容器中注入redis"><a class="markdownIt-Anchor" href="#3-spring容器中注入redis">#</a> 3、spring 容器中注入 redis：</h3>
+<ul>
+<li>在 spring 的配置 xml 中引入 redis 配置文件：  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"propertyConfigurer"</span> <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"locations"</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">value</span>&gt;</span>classpath:redis.properties<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<img data-src="https://img-blog.csdnimg.cn/20200910151642915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzMwMzUzMA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>配置 jedis 连接池 (可不配，使用默认)：  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jedisPoolConfig"</span> <span class="attr">class</span>=<span class="string">"redis.clients.jedis.JedisPoolConfig"</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!-- &lt;property name="maxIdle" value="$&#123;spring.redis.jedis.pool.max-idle&#125;" /&gt;</span></span><br><span class="line"><span class="comment">  	&lt;property name="maxTotal" value="$&#123;redis.maxTotal&#125;" /&gt; </span></span><br><span class="line"><span class="comment">  	&lt;property name="maxWaitMillis" value="$&#123;redis.maxWaitMillis&#125;" /&gt; </span></span><br><span class="line"><span class="comment">  	&lt;property name="testOnBorrow" value="$&#123;redis.testOnBorrow&#125;" /&gt; --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>配置 jedis 连接：  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jedisConnectionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.data.redis.connection.jedis.JedisConnectionFactory"</span> <span class="attr">destroy-method</span>=<span class="string">"destroy"</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"usePool"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hostName"</span> <span class="attr">value</span>=<span class="string">"$&#123;spring.redis.host&#125;"</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"port"</span> <span class="attr">value</span>=<span class="string">"$&#123;spring.redis.port&#125;"</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"timeout"</span> <span class="attr">value</span>=<span class="string">"$&#123;spring.redis.timeout&#125;"</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;spring.redis.password&#125;"</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"poolConfig"</span> <span class="attr">ref</span>=<span class="string">"jedisPoolConfig"</span> /&gt;</span>	</span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>配置 redisTemplate 及序列化：  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"redisTemplate"</span> <span class="attr">class</span>=<span class="string">"org.springframework.data.redis.core.RedisTemplate"</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connectionFactory"</span> <span class="attr">ref</span>=<span class="string">"jedisConnectionFactory"</span> /&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"keySerializer"</span> <span class="attr">ref</span>=<span class="string">"stringSerializer"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   	<span class="comment">&lt;!-- &lt;property name="valueSerializer" ref="stringSerializer"&gt;&lt;/property&gt; --&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hashKeySerializer"</span> <span class="attr">ref</span>=<span class="string">"stringSerializer"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hashValueSerializer"</span> <span class="attr">ref</span>=<span class="string">"stringSerializer"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"stringSerializer"</span> <span class="attr">class</span>=<span class="string">"org.springframework.data.redis.serializer.StringRedisSerializer"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-调用redistemplate进行操作"><a class="markdownIt-Anchor" href="#4-调用redistemplate进行操作">#</a> 4、调用 redisTemplate 进行操作：</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"redistest.do"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Set <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Set&lt;ZSetOperations.TypedTuple&lt;String&gt;&gt; listset = <span class="keyword">new</span> LinkedHashSet();</span><br><span class="line">	ZSetOperations.TypedTuple&lt;String&gt; objectTypedTuple1 = <span class="keyword">new</span> DefaultTypedTuple&lt;String&gt;(<span class="string">"test1"</span>,<span class="number">1</span>);</span><br><span class="line">	ZSetOperations.TypedTuple&lt;String&gt; objectTypedTuple2 = <span class="keyword">new</span> DefaultTypedTuple&lt;String&gt;(<span class="string">"test2"</span>,<span class="number">2</span>);</span><br><span class="line">	listset.add(objectTypedTuple1);</span><br><span class="line">	listset.add(objectTypedTuple2); </span><br><span class="line">	redisTemplate.setValueSerializer(<span class="keyword">new</span> StringRedisSerializer());</span><br><span class="line">	redisTemplate.opsForZSet().add(GaotimeConstants.DEFAULT_MENU_KEY, listset);<span class="comment">//新增有序hash</span></span><br><span class="line">	</span><br><span class="line">	Set&lt;HashMap&gt; listresult = redisTemplate.opsForZSet().range(INFOPRODUCT_MENU_KEY, <span class="number">0</span>, redisTemplate.opsForZSet().size(INFOPRODUCT_MENU_KEY));  <span class="comment">//查询</span></span><br><span class="line">	</span><br><span class="line">	redisTemplate.opsForZSet().removeRange(INFOPRODUCT_MENU_KEY, <span class="number">0</span>, redisTemplate.opsForZSet().size(INFOPRODUCT_MENU_KEY));  <span class="comment">//删除</span></span><br><span class="line">	</span><br><span class="line">	System.out.println(redisTemplate.opsForZSet().size(INFOPRODUCT_MENU_KEY));  <span class="comment">//打印长度</span></span><br></pre></td></tr></table></figure>
+<p>此外，还有更多操作的 api，也就不一 一列举了。</p>
+<h2 id="springboot整合redis"><a class="markdownIt-Anchor" href="#springboot整合redis">#</a> springboot 整合 redis：</h2>
+<h3 id="1-环境及jar包-2"><a class="markdownIt-Anchor" href="#1-环境及jar包-2">#</a> 1、环境及 jar 包：</h3>
+<ul>
+<li>环境：jdk1.8+springboot (2.1.11.RELEASE)+es6+mybatis+redis3.2</li>
+<li>pom.xml：  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.11.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-配置redis"><a class="markdownIt-Anchor" href="#2-配置redis">#</a> 2、配置 redis：</h3>
+<p>在 application.yml 或者 application.properties 中配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#redis</span><br><span class="line">#redis数据库索引(默认为0)</span><br><span class="line">spring.redis.database=0</span><br><span class="line">spring.redis.host=172.18.1.44</span><br><span class="line">spring.redis.port=6379</span><br><span class="line">spring.redis.password=!ZykUGb8</span><br><span class="line">#连接池最大连接数(使用负数表示没有限制)默认8</span><br><span class="line">spring.redis.jedis.pool.max-active=10</span><br><span class="line">spring.redis.jedis.pool.max-idle=10</span><br><span class="line">spring.redis.jedis.pool.min-idle=0</span><br><span class="line">spring.redis.timeout=6000</span><br></pre></td></tr></table></figure>
+<h3 id="3-编写redistemplate的bean配置"><a class="markdownIt-Anchor" href="#3-编写redistemplate的bean配置">#</a> 3、编写 redistemplate 的 bean 配置：</h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import com.fasterxml.jackson.annotation.JsonAutoDetect;</span><br><span class="line">import com.fasterxml.jackson.annotation.PropertyAccessor;</span><br><span class="line">import com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.data.redis.connection.RedisConnectionFactory;</span><br><span class="line">import org.springframework.data.redis.core.RedisTemplate;</span><br><span class="line">import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;</span><br><span class="line">import org.springframework.data.redis.serializer.StringRedisSerializer;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class RedisConfig &#123;</span><br><span class="line">	</span><br><span class="line">	@Bean</span><br><span class="line">	@SuppressWarnings("all")</span><br><span class="line">	public RedisTemplate<span class="tag">&lt;<span class="name">String,</span> <span class="attr">Object</span>&gt;</span> redisTemplate(RedisConnectionFactory factory) &#123;</span><br><span class="line">        RedisTemplate<span class="tag">&lt;<span class="name">String,</span> <span class="attr">Object</span>&gt;</span> template = new RedisTemplate<span class="tag">&lt;<span class="name">String,</span> <span class="attr">Object</span>&gt;</span>();</span><br><span class="line">        template.setConnectionFactory(factory);</span><br><span class="line">        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);</span><br><span class="line">        ObjectMapper om = new ObjectMapper();</span><br><span class="line">        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);</span><br><span class="line">        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);</span><br><span class="line">        jackson2JsonRedisSerializer.setObjectMapper(om);</span><br><span class="line">        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();</span><br><span class="line">        template.setKeySerializer(stringRedisSerializer);</span><br><span class="line">        template.setHashKeySerializer(stringRedisSerializer);</span><br><span class="line">        template.setValueSerializer(jackson2JsonRedisSerializer);</span><br><span class="line">        template.setHashValueSerializer(jackson2JsonRedisSerializer);</span><br><span class="line">        template.afterPropertiesSet();</span><br><span class="line">        return template;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-调用redistemplate进行操作-2"><a class="markdownIt-Anchor" href="#4-调用redistemplate进行操作-2">#</a> 4、调用 redisTemplate 进行操作：</h3>
+<p>如上述第 4 部分一致。</p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TheSqualls 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="TheSqualls 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="TheSqualls 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>TheSqualls： </strong>TheSqualls <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://thesqualls.github.io/2021/06/03/[redis]spring%E6%95%B4%E5%90%88redis/" title="[redis]spring整合redis">https://thesqualls.github.io/2021/06/03/[redis]spring整合redis/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/06/03/%5Boracle%5Doracle%E6%89%B9%E9%87%8F%E5%88%A4%E6%96%AD%E6%8F%92%E5%85%A5%E8%BF%98%E6%98%AF%E6%9B%B4%E6%96%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu1usa7j20zk0m8b29.jpg" title="[oracle]oracle批量判断插入还是更新">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[oracle]oracle批量判断插入还是更新</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/06/03/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4wqtg4j20zk0m8x6p.jpg" title="[vue]常见概念">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>[vue]常见概念</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#spring整合redis"><span class="toc-number">1.</span> <span class="toc-text"> spring 整合 redis：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-环境及jar包"><span class="toc-number">1.1.</span> <span class="toc-text"> 1、环境及 jar 包：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编写redis配置文件"><span class="toc-number">1.2.</span> <span class="toc-text"> 2、编写 redis 配置文件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-spring容器中注入redis"><span class="toc-number">1.3.</span> <span class="toc-text"> 3、spring 容器中注入 redis：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-调用redistemplate进行操作"><span class="toc-number">1.4.</span> <span class="toc-text"> 4、调用 redisTemplate 进行操作：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springboot整合redis"><span class="toc-number">2.</span> <span class="toc-text"> springboot 整合 redis：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-环境及jar包-2"><span class="toc-number">2.1.</span> <span class="toc-text"> 1、环境及 jar 包：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-配置redis"><span class="toc-number">2.2.</span> <span class="toc-text"> 2、配置 redis：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-编写redistemplate的bean配置"><span class="toc-number">2.3.</span> <span class="toc-text"> 3、编写 redistemplate 的 bean 配置：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-调用redistemplate进行操作-2"><span class="toc-number">2.4.</span> <span class="toc-text"> 4、调用 redisTemplate 进行操作：</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TheSqualls"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">TheSqualls</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">30</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RoZVNxdWFsbHM=" title="https:&#x2F;&#x2F;github.com&#x2F;TheSqualls"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/06/03/%5Boracle%5Doracle%E6%89%B9%E9%87%8F%E5%88%A4%E6%96%AD%E6%8F%92%E5%85%A5%E8%BF%98%E6%98%AF%E6%9B%B4%E6%96%B0/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/06/03/%5Bvue%5D%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%E7%BA%BF%E7%A8%8B/" title="线程">线程</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/springboot%E7%9A%84%E5%A5%BD%E5%A4%84%EF%BC%9F%E7%94%A8%E8%BF%87%E5%93%AA%E4%BA%9B%E5%8A%A0%E8%BD%BD%E5%99%A8/" title="springboot的好处？用过哪些加载器">springboot的好处？用过哪些加载器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/" title="项目问题">项目问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/Redirecting%20to%20_bin_systemctl%20start%20mysqld.service%20Failed%20to%20start%20mysqld.service_%20Unit%20not%20found/" title="Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found">Redirecting to _bin_systemctl start mysqld.service Failed to start mysqld.service_ Unit not found</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5Boracle%5Doracle%E6%89%B9%E9%87%8F%E5%88%A4%E6%96%AD%E6%8F%92%E5%85%A5%E8%BF%98%E6%98%AF%E6%9B%B4%E6%96%B0/" title="[oracle]oracle批量判断插入还是更新">[oracle]oracle批量判断插入还是更新</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5Bredis%5Dspring%E6%95%B4%E5%90%88redis/" title="[redis]spring整合redis">[redis]spring整合redis</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5Boracle%5DORA-00600_%20internal%20error%20code,%20arguments_%20%5Bqcsfbdnp_1%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D,%20%5B%5D/" title="[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []">[oracle]ORA-00600_ internal error code, arguments_ [qcsfbdnp_1], [], [], [], [], [], [], []</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/JVM/" title="JVM">JVM</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/java%E5%9F%BA%E7%A1%80/" title="java基础">java基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TheSqualls @ TheSqualls</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/03/[redis]spring整合redis/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/vector_1901.model.json"},"display":{"position":"right","width":350,"height":460},"mobile":{"show":true},"react":{"opacity":0.8}});</script></body>
+</html>

@@ -1,0 +1,497 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="" href="https://thesqualls.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="" href="https://thesqualls.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="" href="https://thesqualls.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://thesqualls.github.io/2021/11/25/%E7%BA%BF%E7%A8%8B/">
+
+
+
+  <title>
+线程 |
+TheSqualls = </title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">线程
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-11-25 15:54:55">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-11-25T15:54:55+08:00">2021-11-25</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">TheSqualls</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetfk5zwj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://thesqualls.github.io/2021/11/25/%E7%BA%BF%E7%A8%8B/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="TheSqualls">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="请你解释一下什么是线程池thread-pool"><a class="markdownIt-Anchor" href="#请你解释一下什么是线程池thread-pool">#</a> 请你解释一下什么是线程池 (thread pool)?</h3>
+<p>由于创建一个对象要获取内存资源或者其他更多资源，所以创建和销毁对象很费时间，所以提高服务程序效率的一个手段就是尽可能减少创建和销毁对象的次数，特别是一些很耗资源的对象创建和销毁，这就是 “池化资源” 技术产生的原因。线程池顾名思义就是事先创建若干个可执行的线程放入一个池 (容器) 中，需要的时候从池中获取线程不用自行创建，使用完毕后不需要销毁线程而是放到池中，从而减少创建和销毁对象的开销。<br>
+常用的线程池：</p>
+<ul>
+<li>CachedThreadPool: 可缓存的线程池，该线程池中没有核心线程，非核心线程的数量为 Integer.max_value，就是无限大，当有需要时创建线程来执行任务，没有需要时回收线程，适用于耗时少，任务量大的情况。</li>
+<li>SecudleThreadPool: 周期性执行任务的线程池，按照某种特定的计划执行线程中的任务，有核心线程，但也有非核心线程，非核心线程的大小也为无限大。适用于执行周期性的任务。</li>
+<li>SingleThreadPool: 只有一条线程来执行任务，适用于有顺序的任务的应用场景。</li>
+<li>FixedThreadPool: 定长的线程池，有核心线程，核心线程的即为最大的线程数量，没有非核心线程。</li>
+</ul>
+<p>定义线程池的几大参数：</p>
+<ul>
+<li>corePoolSize：线程池中的核心线程数量，在没用的时候也不会回收；</li>
+<li>maximumPoolSize：线程池中可以容纳的最大线程的数量；</li>
+<li>keepAliveTime：线程池外除了核心线程之外的其他的线程最长可以保留的时间，因为在线程池中，除了核心线程即使在无任务的情况下也不会被清楚，其他的线程都是有存活时间的，意思就是非核心线程可以保留的最长的空闲时间；</li>
+<li>unit：计算时间的单位；</li>
+<li>workQueue：等待队列，任务可以储存在任务队列中等待被执行，执行的原则是先进先出原则；</li>
+<li>threadFactory：创建线程的工厂；</li>
+<li>handler：任务队列满了之后的策略：
+<ul>
+<li>第一种 AbortPolicy：不执行新任务，直接抛出异常，提示线程池已满；</li>
+<li>第二种 DisCardPolicy：不执行新任务，也不抛出异常；</li>
+<li>第三种 DisCardOldPolicy：将消息队列中的第一个任务替换为当前新进来的任务执行；</li>
+<li>第四种 CallerRunsPolicy：直接调用 execute 来执行当前任务。</li>
+</ul>
+</li>
+</ul>
+<h3 id="synchronized和lock的区别"><a class="markdownIt-Anchor" href="#synchronized和lock的区别">#</a> synchronized 和 lock 的区别：</h3>
+<ul>
+<li>synchronize 可以给方法和代码块加锁，而 lock 只能给方法加锁；</li>
+<li>synchronize 无需手动获取锁和释放锁，发生异常会自动解锁，不会出现死锁，lock 需要自己<br>
+手动加锁和释放锁，如 lock () 和 unlock ()，如果忘记使用 unlock ()，则会出现死锁，所以，我们一般<br>
+会在 finally 里面使用 unlock ()。</li>
+</ul>
+<p>补充：<br/><br>
+synchronize 修饰成员方法时，默认的锁对象，就是当前对象；<br/><br>
+synchronize 修饰静态方法时，默认的锁对象是当前类的 class 对象；<br/><br>
+synchronize 修饰代码块时，可以自己来设置锁对象，比如 synchronize (this)。<br/></p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TheSqualls 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="TheSqualls 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="TheSqualls 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>TheSqualls： </strong>TheSqualls <i class="ic i-at"><em>@</em></i>
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://thesqualls.github.io/2021/11/25/%E7%BA%BF%E7%A8%8B/" title="线程">https://thesqualls.github.io/2021/11/25/线程/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC96aC1DTg=="><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/11/25/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxxcb6rj20zk0m8b29.jpg" title="数据库">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>数据库</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/11/25/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexe4oykj20zk0m87ji.jpg" title="项目问题">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>项目问题</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#请你解释一下什么是线程池thread-pool"><span class="toc-number">1.</span> <span class="toc-text"> 请你解释一下什么是线程池 (thread pool)?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized和lock的区别"><span class="toc-number">2.</span> <span class="toc-text"> synchronized 和 lock 的区别：</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TheSqualls"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">TheSqualls</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">30</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RoZVNxdWFsbHM=" title="https:&#x2F;&#x2F;github.com&#x2F;TheSqualls"><i class="ic i-github"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/11/25/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/11/25/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%5D%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" title="[企业微信二次开发]不同环境部署">[企业微信二次开发]不同环境部署</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/java%E5%9F%BA%E7%A1%80/" title="java基础">java基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%E7%BA%BF%E7%A8%8B/" title="线程">线程</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/mysql%E4%BD%BF%E7%94%A8/" title="mysql使用">mysql使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5B%E9%9B%86%E5%90%88%5D%E5%BC%95%E7%94%A8%E6%B3%9B%E5%9E%8B%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%8D%E5%88%B6/" title="[集合]引用泛型结果集复制">[集合]引用泛型结果集复制</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%5BmongoDB%5D%20MongoTemplate%E5%AE%9E%E7%8E%B0%E5%88%86%E7%BB%84%E8%81%9A%E5%90%88%E5%88%86%E9%A1%B5%E5%80%92%E5%BA%8F%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" title="[mongoDB] MongoTemplate实现分组聚合分页倒序条件查询">[mongoDB] MongoTemplate实现分组聚合分页倒序条件查询</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/arrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="arrayList和LinkedList的区别">arrayList和LinkedList的区别</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/%5BJSMind%5D%E4%BD%BF%E7%94%A8JSMind%E6%93%8D%E4%BD%9C%E7%94%9F%E6%88%90%E7%9A%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="[JSMind]使用JSMind操作生成的思维导图">[JSMind]使用JSMind操作生成的思维导图</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/11/25/%5BJS%5DJS%E9%9B%86%E5%90%88%E8%BD%AC%E6%8D%A2/" title="[JS]JS集合转换">[JS]JS集合转换</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/06/03/NUXT%E5%BC%95%E5%85%A5element-ui%E5%90%8E%E4%BD%BF%E7%94%A8scroll(%E7%80%91%E5%B8%83%E6%B5%81)%E6%8A%A5%E9%94%99Failed%20to%20execute%20'observe'%20on%20'MutationObserver'_%20parameter%201%20is%20no/" title="NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute &#39;observe&#39; on &#39;MutationObserver&#39;_ parameter 1 is no">NUXT引入element-ui后使用scroll(瀑布流)报错Failed to execute 'observe' on 'MutationObserver'_ parameter 1 is no</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TheSqualls @ TheSqualls</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/11/25/线程/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/vector_1901.model.json"},"display":{"position":"right","width":350,"height":460},"mobile":{"show":true},"react":{"opacity":0.8}});</script></body>
+</html>
